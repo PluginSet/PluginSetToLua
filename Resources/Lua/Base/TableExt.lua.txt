@@ -1,0 +1,269 @@
+---@type table<any, any> readonly empty table
+table.empty = setmetatable({}, { __newindex = function()
+    logWarn("Donnot change const value table.empty")
+end })
+
+---k2v return a table changed key and value
+---@generic TKey, TValue
+---@param tab table<TKey, TValue>
+---@return table<TValue, TKey>
+function table.k2v(tab)
+    local result = {}
+    for k, v in pairs(tab) do
+        result[v] = k
+    end
+    return result
+end
+
+---extendlist
+---@param list any[][]
+---@return any[]
+function table.extendlist (list)
+    local result = {}
+    for _, li in ipairs(list) do
+        for _, v in ipairs(li) do
+            table.insert(result, v);
+        end
+    end
+    return result
+end
+
+---extend
+---@vararg any[]
+---@return any[]
+function table.extend (...)
+    return table.extendlist({...})
+end
+
+---shallow copy
+---@generic TKey,TValue
+---@param source table<TKey, TValue>
+---@param copy table<TKey, TValue>
+function table.shallow(source, copy)
+    copy = copy or {}
+    for k, v in pairs(source) do
+        copy[k] = v
+    end
+    return copy
+end
+
+---isEmpty
+---@param t table<any, any>
+---@return boolean is t a empty table
+function table.isEmpty (t)
+    return next(t) == nil
+end
+
+---slice tab return a new tab
+---@generic TValue
+---@param tab TValue[]
+---@param from_index number
+---@param to_index number
+---@return TValue[]
+function table.slice( tab, from_index, to_index )
+   if from_index <= 0 or from_index > #tab or to_index <= 0 or to_index > #tab then return end
+   local result = {}
+   for i = from_index, to_index, 1 do
+      if type(tab[i]) == "table" then
+         table.insert(result, clone(tab[i]))
+      end
+   end
+   return result
+end
+
+---keys return keys of table
+---@generic TKey
+---@param t table<TKey, any>
+---@return TKey[]
+function table.keys( t )
+   local keys = {}
+   for k, _ in pairs( t ) do
+       keys[#keys + 1] = k
+   end
+   return keys
+end
+
+---values
+---@generic TValue
+---@param t table<any, TValue>
+---@return TValue[]
+function table.values(t)
+    local values = {}
+    for _, v in pairs( t ) do
+        values[#values + 1] = v
+    end
+    return values
+end
+
+---@generic T
+---@param t T[]
+---@return T
+function table.randomlist(t)
+    if type(t) ~= "table" then return end
+    local count = #t
+    if count <= 0 then return end
+    return t[math.random(count)]
+end
+
+---random
+---@generic TKey, TValue
+---@param t table<TKey, TValue>
+---@return TValue, TKey
+function table.random(t)
+    if type(t) ~= "table" then return end
+    local keys = table.keys(t)
+    local key = table.randomlist(keys)
+    if key ~= nil then
+        return t[key], key
+    end
+end
+
+---count
+---@param t table<any, any>
+---@return number
+function table.count(t)
+   local count = 0
+   for _, _ in pairs(t) do
+       count = count + 1
+   end
+   return count
+end
+
+---@generic T
+---@param t T[]
+---@param delimeter string
+---@param formatter fun(elem: T):string default=tostring(T)
+---@return string
+function table.join(t, delimeter, formatter)
+    formatter = formatter or tostring
+    local buff = {}
+    for i = 1, #t do
+        buff[i] = formatter(t[i])
+    end
+    return table.concat(buff, delimeter)
+end
+
+---find
+---@generic TKey, TValue
+---@param tab table<TKey, TValue>
+---@param value TValue
+---@return TKey, TValue
+function table.find(tab, value)
+    if type(tab) ~= "table" then
+        return nil
+    end
+    for k, v in pairs(tab) do
+        if v == value then
+            return k, v
+        end
+    end
+end
+
+---find
+---@generic TKey, TValue
+---@param t table<TKey, TValue>
+---@param func fun(k:TKey, v:TValue):boolean
+---@return TKey, TValue
+function table.findWith(t,func)
+    if type(t) ~= "table" then
+        return nil
+    end
+    for k, v in pairs(t) do
+        if func(k, v) == true then
+            return k,v
+        end
+    end
+end
+
+---map map the table and return the all func result
+---@generic TKey, TValue
+---@param t table<TKey, TValue> | TValue[]
+---@param func fun(key: TKey, value: TValue): any
+---@return any[]
+function table.map(t, func)
+    local ret = {}
+    if type(t) == "table" then
+        for k, v in pairs(t) do
+            local res = func(k, v)
+            if res ~= nil then
+                ret[#ret + 1] = res
+            end
+        end
+    end
+    return ret
+end
+
+---basicSerialize
+---@param o any
+---@return string
+local function basicSerialize (o)
+    local t = type(o)
+    local so = tostring(o)
+    if t == "function" then
+        local info = debug.getinfo(o, "S")
+        -- info.name is nil because o is not a calling level
+        if info.what == "C" then
+            return string.format("\"%s, C function\"", so)
+        else
+            -- the information is defined through lines
+            return string.format("\"%s, defined in (%s-%s)%s\"", so, info.linedefined, info.lastlinedefined, info.source)
+        end
+    elseif t == "number" or t == "boolean" then
+        return so
+    else
+        return string.format("%q", so)
+    end
+end
+
+---serialize
+---@param any any
+---@param indent string
+---@return string, boolean result, newTable
+local function serialize(any, indent, look_up)
+    if type(any) == "table" then
+        look_up = look_up or {}
+        local look = look_up[any]
+        if look then return look end
+        local basestr = basicSerialize(any)
+        look_up[any] = string.format("(%s)", basestr)
+        if next(any) == nil then
+            return string.format("(%s){}", basestr), true
+        else
+            indent = indent or ""
+            local curInd = indent .. "  "
+            local buff = {string.format("(%s){", basestr)}
+            local keys = {}
+            for k, v in pairs(any) do
+                local value = serialize(v, curInd, look_up)
+                local key, isNew = serialize(k, indent, look_up)
+                if isNew then
+                    local kb = look_up[k]
+                    keys[#keys + 1] = string.format("(%s) = %s", kb, key)
+                    key = kb
+                end
+                buff[#buff + 1] = string.format("%s[%s] = %s,", curInd, key, value)
+            end
+            buff[#buff + 1] = string.format("%s}", indent)
+            if #keys > 0 then
+                buff[#buff + 1] = string.format("%s--------------------- keys in %s start ----------------", indent, basestr)
+                for _, key in ipairs(keys) do
+                    buff[#buff + 1] = key
+                end
+                buff[#buff + 1] = string.format("%s--------------------- keys in %s ended ----------------", indent, basestr)
+            end
+            return table.concat(buff, "\n"), true
+        end
+    else
+        return basicSerialize(any)
+    end
+end
+
+---show table string
+---@param t table<any, any>
+---@param name string
+---@param indent string
+---@return string
+function table.show(t, name, indent)
+    name = name or "__unnamed__"
+    return string.format("%s = %s", name, serialize(t, indent, {}))
+end

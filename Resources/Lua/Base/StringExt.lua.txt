@@ -1,0 +1,85 @@
+---rfind  找到最后一个匹配
+---@param s table
+---@param pattern table
+---@return number, number  startIndex, endedIndex
+function string.rfind(s, pattern)
+	local start, ended = string.find(s, pattern)
+    local rs, re
+	while start do
+		rs = start
+		re = ended
+		start, ended = string.find(s, pattern, start + 1)
+	end
+	return rs, re
+end
+
+---startswith
+---@param str1 string
+---@param str2 string
+---@return boolean
+function string.startswith( str1, str2 )
+	return string.sub(str1, 1, #str2) == str2
+end
+
+---trim
+---@param s string
+---@return string
+function string.trim(s)
+	return string.gsub(s, "^%s*(.-)%s*$", "%1")
+end
+
+local CS_FORMAT_TRANS = {
+	{ key = "[DX]",  need = "number", format = function(value) return Util.Long(value) end },
+	{ key = "[CGNFP]", need = "number", format = function(value) return value end },
+}
+---CSFormat
+---@param formatter string
+---@vararg any
+---@return string
+function string.CSFormat(formatter, ...)
+	if string.find(formatter, "{%d:%a%d*}") then
+		local args = {...}
+		local csArgs = {}
+		for i, arg in ipairs(args) do
+			local format = string.format("{%d:%%s%%%%d*}", i - 1)
+			local formated = false
+			for _, info in ipairs(CS_FORMAT_TRANS) do
+				if string.find(formatter, string.format(format, info.key)) then
+					if type(arg) ~= info.need then
+						logWarn(string.format("Cannot format %s, error arg %s, type = %s, need is %s", formatter, tostring(arg), type(arg), info.need))
+					else
+						csArgs[i] = info.format(arg)
+						formated = true
+						break
+					end
+				end
+			end
+			if not formated then
+				csArgs[i] = tostring(arg)
+			end
+		end
+		return System.String.Format(formatter, unpack(csArgs))
+	else
+		local args = {...}
+		local s = formatter
+		for i, arg in ipairs(args) do
+			s = string.gsub(s, string.format("{%d}", i - 1), tostring(arg))
+		end
+		return s
+	end
+end
+
+--
+--function string.filter_client_string(str)
+--	local ret = ""
+--	for k = 1, #str do
+--		local c = string.byte(str, k)
+--		if not c then return "" end
+--		if c >= 48 and c <= 57 or c >= 65 and c <= 90 or c >= 97 and c <= 122   or c == 46 or c == 58 or c == 45 then
+--			ret = ret..string.char(c)
+--		else
+--			ret = ret.."_"
+--		end
+--	end
+--	return ret
+--end

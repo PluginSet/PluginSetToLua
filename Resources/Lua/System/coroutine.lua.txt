@@ -1,0 +1,309 @@
+--------------------------------------------------------------------------------
+--      Copyright (c) 2015 - 2016 , 蒙占志(topameng) topameng@gmail.com
+--      All rights reserved.
+--      Use, modification and distribution are subject to the "MIT License"
+--------------------------------------------------------------------------------
+local create = coroutine.create
+local running = coroutine.running
+local _resume = coroutine.resume
+local status = coroutine.status
+local yield = coroutine.yield
+local error = error
+local unpack = unpack
+local debug = debug
+local FrameTimer = FrameTimer
+local CoTimer = CoTimer
+
+local comap = {}
+local pool = {}
+local parents = {}
+setmetatable(comap, {__mode = "kv"})
+
+local resume
+local function SetParent(co, parent)
+	local pl = parents[co] or {}
+	table.insert(pl, parent)
+	parents[co] = pl
+end
+
+local function CheckParent(co, force)
+	if force or status(co) == 'dead' then
+		if comap[co] then
+			comap[co]:Stop()
+		end
+		comap[co] = nil
+		local pl = parents[co]
+		if pl then
+			for _, p in ipairs(pl) do
+				if status(p) ~= 'dead' then
+					resume(p)
+				end
+			end
+		end
+	end
+end
+
+-- 重写resume，增加错误捕获
+local function check_resume_result(co, flag, ...)
+	if not flag then
+		error(...)
+	end
+	CheckParent(co)
+	return flag, ...
+end
+resume = function(co, ...)
+	return check_resume_result(co, _resume(co, ...))
+end
+coroutine.resume = resume
+
+local function table_k2v(tab)
+	local r = {}
+	for k, v in pairs(tab) do
+		r[v] = k
+	end
+	return r
+end
+
+local function pack_end_call(p, call)
+	return function(...)
+		if p.co and status(p.co) ~= "dead" then
+			p.args = { ... }
+			p.func = call
+			if p.timeout then
+				p.timeout:Stop()
+				p.timeout = nil
+			end
+			FrameTimer.New(function()
+				resume(p.co)
+			end, 1, 1):Start()
+		end
+	end
+end
+
+function coroutine.wait_callback(func, args, callbacks, timeout, timeoutCall)
+	local co = running()
+	local params = { co = co }
+	if args and callbacks then
+		local pool = table_k2v(callbacks)
+		for i = 1, #args do
+			local arg = args[i]
+			if pool[arg] then
+				args[i] = pack_end_call(params, arg)
+			end
+		end
+	end
+	if timeout then
+		params.timeout = CoTimer.New(pack_end_call(params, timeoutCall), timeout, 1)
+		params.timeout:Start()
+	end
+	func(unpack(args))
+	yield()
+	if params.func then
+		return params.func(unpack(params.args))
+	end
+end
+
+function coroutine.start(f, ...)
+	local co = create(f)
+
+	if running() == nil then
+		local flag, msg = resume(co, ...)
+
+		if not flag then
+			error(debug.traceback(co, msg))
+		end
+	else
+		local args = {...}
+		local timer = nil
+
+		local action = function()
+			comap[co] = nil
+			timer.func = nil
+			local flag, msg = resume(co, unpack(args))
+			table.insert(pool, timer)
+
+			if not flag then
+				timer:Stop()
+				error(debug.traceback(co, msg))
+			end
+		end
+
+		if #pool > 0 then
+			timer = table.remove(pool)
+			timer:Reset(action, 0, 1)
+		else
+			timer = FrameTimer.New(action, 0, 1)
+		end
+
+		comap[co] = timer
+		timer:Start()
+	end
+
+	return co
+end
+
+function coroutine.wait(t, co, ...)
+	local args = {...}
+	co = co or running()
+	local timer = nil
+
+	local action = function()
+		comap[co] = nil
+		timer.func = nil
+		local flag, msg = resume(co, unpack(args))
+
+		if not flag then
+			timer:Stop()
+			error(debug.traceback(co, msg))
+			return
+		end
+	end
+
+	timer = CoTimer.New(action, t, 1)
+	comap[co] = timer
+	timer:Start()
+	return yield()
+end
+
+function coroutine.step(t, co, ...)
+	local args = {...}
+	co = co or running()
+	local timer = nil
+
+	local action = function()
+		comap[co] = nil
+		timer.func = nil
+		local flag, msg = resume(co, unpack(args))
+		table.insert(pool, timer)
+
+		if not flag then
+			timer:Stop()
+			error(debug.traceback(co, msg))
+			return
+		end
+	end
+
+	if #pool > 0 then
+		timer = table.remove(pool)
+		timer:Reset(action, t or 1, 1)
+	else
+		timer = FrameTimer.New(action, t or 1, 1)
+	end
+
+	comap[co] = timer
+	timer:Start()
+	return yield()
+end
+
+function coroutine.www(www, co)
+	co = co or running()
+	local timer = nil
+
+	local action = function()
+		if not www.isDone then
+			return
+		end
+
+		comap[co] = nil
+		timer:Stop()
+		timer.func = nil
+		local flag, msg = resume(co)
+		table.insert(pool, timer)
+
+		if not flag then
+			error(debug.traceback(co, msg))
+			return
+		end
+	end
+
+	if #pool > 0 then
+		timer = table.remove(pool)
+		timer:Reset(action, 1, -1)
+	else
+		timer = FrameTimer.New(action, 1, -1)
+	end
+	comap[co] = timer
+	timer:Start()
+	return yield()
+end
+
+function coroutine.wait_cro(co, myco)
+	if not co then return end
+	myco = myco or running()
+	if myco == nil then
+		local msg = debug.traceback(myco, 'run wait_cro in a coroutine!')
+		error(msg)
+		return
+	end
+
+	if status(co) == 'dead' then
+		return
+	else
+		SetParent(co, myco)
+		return yield()
+	end
+end
+
+function coroutine.wait_cro_one(co_list, myco)
+	if not co_list or #co_list == 0 then return end
+	myco = myco or running()
+	if myco == nil then
+		local msg = debug.traceback(myco, 'run wait_cro in a coroutine!')
+		error(msg)
+		return
+	end
+
+	for _, co in ipairs(co_list) do
+		if status(co) == "dead" then
+			return
+		end
+	end
+
+	local one = coroutine.start(function()
+		yield()
+	end)
+
+	for _, co in ipairs(co_list) do
+		if status(co) ~= "dead" then
+			SetParent(co, one)
+		end
+	end
+	return coroutine.wait_cro(one,myco)
+end
+
+function coroutine.wait_cro_all(co_list, myco)
+	if not co_list or #co_list == 0 then return end
+	myco = myco or running()
+	if myco == nil then
+		local msg = debug.traceback(myco, 'run wait_cro in a coroutine!')
+		error(msg)
+		return
+	end
+
+	local tasks = {}
+	for _, co in ipairs(co_list) do
+		if status(co) ~= 'dead' then
+			tasks[co] = true
+		end
+	end
+	if not next(tasks) then return end
+
+	local main = coroutine.start(function()
+		while next(tasks) do
+			local task = next(tasks)
+			if status(task) == "dead" then
+				tasks[task] = nil
+			else
+				yield()
+			end
+		end
+	end)
+	for co, _ in pairs(tasks) do
+		SetParent(co, main)
+	end
+	return coroutine.wait_cro(main, myco)
+end
+
+function coroutine.stop(co)
+	CheckParent(co, true)
+end

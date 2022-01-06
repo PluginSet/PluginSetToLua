@@ -1,0 +1,75 @@
+function class(classname, super, create)  
+    local superType = type(super)  
+    local cls   
+    if superType ~= "function" and superType ~= "table" then  
+        superType = nil  
+        super = nil  
+    end  
+    local superCType = super and rawget(super, "__ctype");
+    if superType == "function" or superCType == 1 then   
+        cls = {}  
+        if superType == "table" then  
+            for k,v in pairs(super) do cls[k] = v end  
+            cls.__create = super.__create  
+            cls.super    = super  
+        else   
+            cls.__create = super  
+        end  
+        cls.ctor = function() end  
+        cls.__cname = classname  
+        cls.__ctype = 1  
+        function cls.new(...)  
+            local instance = cls.__create(...)  
+            for k,v in pairs(cls) do instance[k] = v end  
+            instance.class = cls  
+            instance:ctor(...)  
+            return instance  
+        end
+    elseif super and superCType ~= 2 then  -- native class
+        if superCType then
+            cls = clone(super)
+            cls.__create = create or super.__create
+        else
+            cls = {ctor = function() end}
+            setmetatable(cls, { __index = super })
+            cls.__create = create or function() return super.New() end
+        end
+        cls.super = super
+        
+        cls.__cname = classname
+        cls.__ctype = 3
+        cls.__index = cls
+        
+        function cls.new(...)
+            local instance = cls.__create(...)
+            if type(instance) == "userdata" then   -- fix check userdata, support lua new table
+                local peer = {}
+                setmetatable(peer, cls)
+                tolua.setpeer(instance, peer)
+            else
+                setmetatable(instance, cls)
+            end
+            instance.class = cls
+            instance:ctor(...)
+            return instance
+        end
+    else
+        if super then  
+            cls = clone(super)  
+            cls.super = super  
+        else  
+            cls = {ctor = function() end}  
+        end  
+  
+        cls.__cname = classname  
+        cls.__ctype = 2  
+        cls.__index = cls
+        function cls.new(...)  
+            local instance = setmetatable({}, cls)  
+            instance.class = cls  
+            instance:ctor(...)  
+            return instance  
+        end  
+    end  
+    return cls  
+end
