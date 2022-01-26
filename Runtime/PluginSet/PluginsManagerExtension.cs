@@ -38,14 +38,14 @@ namespace PluginSet.Lua
             }
         }
         
-        public static void SetUserInfo(this PluginsManager pm, LuaTable table)
+        public static void SetUserInfo(this PluginsManager pm, bool isNewUser, string userId, LuaTable table = null)
         {
-            pm.SetUserInfo(table.ToDictTable<string, object>().ToDictionary());
+            pm.SetUserInfo(isNewUser, userId, table?.ToDictTable<string, object>().ToDictionary());
         }
         
-        public static void SetUserInfoWith(this PluginsManager pm, string pluginName, LuaTable table)
+        public static void SetUserInfoWith(this PluginsManager pm, string pluginName, bool isNewUser, string userId, LuaTable table = null)
         {
-            pm.SetUserInfoWith(pluginName, table.ToDictTable<string, object>().ToDictionary());
+            pm.SetUserInfoWith(pluginName, isNewUser, userId, table?.ToDictTable<string, object>().ToDictionary());
         }
         
         public static void CustomEvent(this PluginsManager pm, string customEventName, LuaTable table)
