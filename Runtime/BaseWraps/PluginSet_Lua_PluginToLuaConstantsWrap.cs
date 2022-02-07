@@ -11,17 +11,17 @@ public class PluginSet_Lua_PluginToLuaConstantsWrap
 	public static void Register(LuaState L)
 	{
 		L.BeginStaticLibs("PluginToLuaConstants");
-		L.RegVar("TOLUA_ON_LUA_START", get_TOLUA_ON_LUA_START, null);
-		L.RegVar("TOLUA_ON_LUA_STOP", get_TOLUA_ON_LUA_STOP, null);
+		L.RegVar("NOTIFY_ON_LUA_START", get_NOTIFY_ON_LUA_START, null);
+		L.RegVar("NOTIFY_ON_LUA_STOP", get_NOTIFY_ON_LUA_STOP, null);
 		L.EndStaticLibs();
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_TOLUA_ON_LUA_START(IntPtr L)
+	static int get_NOTIFY_ON_LUA_START(IntPtr L)
 	{
 		try
 		{
-			LuaDLL.lua_pushstring(L, PluginSet.Lua.PluginToLuaConstants.TOLUA_ON_LUA_START);
+			LuaDLL.lua_pushstring(L, PluginSet.Lua.PluginToLuaConstants.NOTIFY_ON_LUA_START);
 			return 1;
 		}
 		catch (Exception e)
@@ -31,11 +31,11 @@ public class PluginSet_Lua_PluginToLuaConstantsWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_TOLUA_ON_LUA_STOP(IntPtr L)
+	static int get_NOTIFY_ON_LUA_STOP(IntPtr L)
 	{
 		try
 		{
-			LuaDLL.lua_pushstring(L, PluginSet.Lua.PluginToLuaConstants.TOLUA_ON_LUA_STOP);
+			LuaDLL.lua_pushstring(L, PluginSet.Lua.PluginToLuaConstants.NOTIFY_ON_LUA_STOP);
 			return 1;
 		}
 		catch (Exception e)

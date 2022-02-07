@@ -55,6 +55,7 @@ namespace PluginSet.Lua.Editor
             typeof(InjectType),
             typeof(Debugger),
             typeof(LuaProfiler),
+            typeof(LanguageType),
             
             typeof(PluginConstants),
             typeof(PluginToLuaConstants),

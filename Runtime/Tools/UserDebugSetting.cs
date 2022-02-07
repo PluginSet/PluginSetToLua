@@ -1,5 +1,7 @@
-#if UNITY_EDITOR
 
+
+using System;
+#if UNITY_EDITOR
 using System.IO;
 using PluginSet.Core;
 using UnityEditor;
@@ -11,6 +13,8 @@ namespace PluginSet.Lua
     public static class UserDebugSetting
     {
         private const string ToLuaDebugSettingKey = "tolua_debug_setting";
+        
+        [Serializable]
         private struct DebugSetting
         {
             public bool EnableLuaDebug;

@@ -22,6 +22,7 @@ namespace PluginSet.Lua.LuaWrap
 			PluginSet_Core_LoggerManagerWrap.Register(L);
 			L.BeginModule("PluginSet");
 			L.BeginModule("Core");
+			PluginSet_Core_LanguageTypeWrap.Register(L);
 			PluginSet_Core_PluginConstantsWrap.Register(L);
 			PluginSet_Core_AsyncOperationHandleWrap.Register(L);
 			PluginSet_Core_AsyncOperationHandle_UnityEngine_ObjectWrap.Register(L);

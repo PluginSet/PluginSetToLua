@@ -25,7 +25,7 @@ namespace PluginSet.Lua
 
         public override string Name => "ToLua";
 
-        public int StartOrder => int.MaxValue;
+        public int StartOrder => int.MaxValue - 1;
 
         public bool IsRunning { get; private set; }
 
@@ -255,7 +255,7 @@ namespace PluginSet.Lua
 
             SetGlobals();
 
-            base.SendNotification(PluginToLuaConstants.TOLUA_ON_LUA_START, _luaState);
+            base.SendNotification(PluginToLuaConstants.NOTIFY_ON_LUA_START, _luaState);
 
             IsRunning = true;
             StartMain();
@@ -307,7 +307,7 @@ namespace PluginSet.Lua
             
             CallQuit();
             
-            base.SendNotification(PluginToLuaConstants.TOLUA_ON_LUA_STOP, _luaState);
+            base.SendNotification(PluginToLuaConstants.NOTIFY_ON_LUA_STOP, _luaState);
             LuaState state = _luaState;
             _luaState = null;
 
