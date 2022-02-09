@@ -8,6 +8,7 @@
     "pluginset",
     "tolua"
   ],
+  "category": "Libraries",
   "dependencies": {
     "com.pluginset.core": "0.0.1"
   },
