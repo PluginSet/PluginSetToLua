@@ -25,7 +25,7 @@ namespace PluginSet.Lua
 
         public override string Name => "ToLua";
 
-        public int StartOrder => int.MaxValue - 1;
+        public int StartOrder => PluginsStartOrder.VirtualMachine;
 
         public bool IsRunning { get; private set; }
 
