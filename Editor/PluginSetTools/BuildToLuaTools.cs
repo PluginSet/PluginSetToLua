@@ -173,20 +173,20 @@ namespace PluginSet.Lua.Editor
             if (Application.platform == RuntimePlatform.WindowsEditor)
             {
                 luajitPath = Path.Combine(ToolPath, "luajit_win", isBit64 ? "luajit64" : "luajit32");
-                luajitFile = "luajit.exe";
+                luajitFile = Path.Combine(luajitPath, "luajit.exe");
             }
             else if (Application.platform == RuntimePlatform.OSXEditor)
             {
                 isWin = false;
                 luajitPath = Path.Combine(ToolPath, "luajit_mac", isBit64 ? "luajit64" : "luajit32");
-                luajitFile = "./luajit";
+                luajitFile = Path.Combine(luajitPath, "luajit");
             }
             else
             {
                 UnityEngine.Debug.LogError("Cannot support this editor platform");
             }
 
-            if (!File.Exists(Path.Combine(luajitPath,luajitFile)))
+            if (!File.Exists(luajitFile))
             {
                 UnityEngine.Debug.LogError("Cannot find luac tool file!");
                 File.Copy(src, dst);
