@@ -325,8 +325,7 @@ namespace PluginSet.Lua
 
             if (_loop != null)
             {
-                _loop.enabled = false;
-                _loop.Destroy();
+                UnityEngine.Object.Destroy(_loop);
                 _loop = null;
             }
 
