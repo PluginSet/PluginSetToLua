@@ -13,6 +13,7 @@ public class PluginSet_Core_PluginConstantsWrap
 		L.BeginStaticLibs("PluginConstants");
 		L.RegConstant("SuccessCode", 0);
 		L.RegConstant("CancelCode", -1);
+		L.RegConstant("InvalidCode", 404);
 		L.RegConstant("FailDefaultCode", 9999);
 		L.RegVar("NOTIFY_RESTART", get_NOTIFY_RESTART, null);
 		L.RegVar("NOTIFY_REPORT", get_NOTIFY_REPORT, null);
@@ -69,6 +70,7 @@ public class PluginSet_Core_PluginConstantsWrap
 		L.RegVar("PATCH_NOTIFY_REQUEST_DOWNLOAD_PATCHES", get_PATCH_NOTIFY_REQUEST_DOWNLOAD_PATCHES, null);
 		L.RegVar("PATCH_NOTIFY_REQUEST_DOWNLOAD_APP", get_PATCH_NOTIFY_REQUEST_DOWNLOAD_APP, null);
 		L.RegVar("PATCH_NOTIFY_NET_ERROR", get_PATCH_NOTIFY_NET_ERROR, null);
+		L.RegVar("PLUGIN_INIT_ERROR", get_PLUGIN_INIT_ERROR, null);
 		L.RegVar("IAP_ON_INIT_SUCCESS", get_IAP_ON_INIT_SUCCESS, null);
 		L.RegVar("IAP_ON_INIT_FAILED", get_IAP_ON_INIT_FAILED, null);
 		L.RegVar("IAP_CALLBACK_LOST_PAYMENTS", get_IAP_CALLBACK_LOST_PAYMENTS, null);
@@ -838,6 +840,20 @@ public class PluginSet_Core_PluginConstantsWrap
 		try
 		{
 			LuaDLL.lua_pushstring(L, PluginSet.Core.PluginConstants.PATCH_NOTIFY_NET_ERROR);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_PLUGIN_INIT_ERROR(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, PluginSet.Core.PluginConstants.PLUGIN_INIT_ERROR);
 			return 1;
 		}
 		catch (Exception e)
