@@ -10,10 +10,6 @@ namespace PluginSet.Lua.Editor
     [BuildChannelsParams("ToLua", -100, "ToLua环境相当配置")]
     public class BuildToLuaParams : ScriptableObject
     {
-        [Tooltip("lua脚本搜索目录")]
-        [FolderDrag(null, ".")]
-        public string[] LuaScriptPaths;
-
         [Tooltip("打包时是否将lua打包为jit")]
         public bool BuildLuaToJit;
 
@@ -25,6 +21,10 @@ namespace PluginSet.Lua.Editor
 
         [Tooltip("lua所在的bundle名称（所有脚本在同一个assetBundle中）")]
         public string LuaBundleName = null;
+        
+        [Tooltip("lua除LuaBundleName所在AssetBundle目录外的脚本搜索目录")]
+        [FolderDrag(null, ".")]
+        public string[] LuaExtendScriptPaths;
 
         [Tooltip("是否启用luaSocket")]
         public bool LuaSocket = false;
@@ -47,7 +47,11 @@ namespace PluginSet.Lua.Editor
             config.StartScript = buildParams.StartScript;
             config.LuaBundleName = buildParams.LuaBundleName;
             config.LuaSocket = buildParams.LuaSocket;
-            config.LuaScriptSearchPaths = buildParams.LuaScriptPaths.Select(path => path.Substring(7)).ToArray();
+
+            var luaPaths = context.CollectAssetBundleFilePaths(buildParams.LuaBundleName);
+            if (buildParams.LuaExtendScriptPaths != null)
+                luaPaths.AddRange(buildParams.LuaExtendScriptPaths);
+            config.LuaScriptSearchPaths = luaPaths.Select(path => path.Substring(7)).ToArray();
         }
 
         [iOSXCodeProjectModify(int.MaxValue)]

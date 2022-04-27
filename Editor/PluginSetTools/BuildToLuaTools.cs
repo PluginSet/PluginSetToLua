@@ -39,8 +39,9 @@ namespace PluginSet.Lua.Editor
             var buildParams = context.BuildChannels.Get<BuildToLuaParams>("ToLua");
             if (string.IsNullOrEmpty(buildParams.LuaBundleName))
                 return;
-            
-            context.Set<List<string>>("toluaScriptPaths", buildParams.LuaScriptPaths.ToList());
+
+            var luaPaths = context.CollectAssetBundleFilePaths(buildParams.LuaBundleName);
+            context.Set<List<string>>("toluaScriptPaths", luaPaths);
         }
 
         [OnBuildBundles]
