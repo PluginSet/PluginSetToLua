@@ -143,13 +143,13 @@ namespace PluginSet.Lua
         /// <summary>
         /// 通知lua游戏退出
         /// </summary>
-        private void CallQuit()
+        private void CallQuit(bool isAppQuit)
         {
             var quit = _luaState.GetFunction("OnApplicationQuit");
             if (quit == null)
                 return;
 
-            quit.Call();
+            quit.Call<bool>(isAppQuit);
             quit.Dispose();
         }
 
@@ -305,7 +305,7 @@ namespace PluginSet.Lua
             if (!isAppQuit)
                 CallReadyRestart();
             
-            CallQuit();
+            CallQuit(isAppQuit);
             
             base.SendNotification(PluginToLuaConstants.NOTIFY_ON_LUA_STOP, _luaState);
             LuaState state = _luaState;
