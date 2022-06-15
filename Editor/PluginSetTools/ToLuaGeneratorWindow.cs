@@ -96,6 +96,8 @@ namespace PluginSet.Lua.Editor
                     ToLuaMenu.ClearLuaWraps();
                 }
             }
+            
+            GUILayout.EndVertical();
         }
     }
 }
