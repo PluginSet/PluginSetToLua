@@ -46,10 +46,90 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("GetChannelNameWith", GetChannelNameWith);
 		L.RegFunction("GetChannelId", GetChannelId);
 		L.RegFunction("GetChannelIdWith", GetChannelIdWith);
+		L.RegFunction("LoginChat", LoginChat);
+		L.RegFunction("LogoutChat", LogoutChat);
+		L.RegFunction("AddNewMessageReceiveCallback", AddNewMessageReceiveCallback);
+		L.RegFunction("RemoveNewMessageReceiveCallback", RemoveNewMessageReceiveCallback);
+		L.RegFunction("LoginChatWith", LoginChatWith);
+		L.RegFunction("LogoutChatWith", LogoutChatWith);
+		L.RegFunction("AddNewMessageReceiveCallbackWith", AddNewMessageReceiveCallbackWith);
+		L.RegFunction("RemoveNewMessageReceiveCallbackWith", RemoveNewMessageReceiveCallbackWith);
+		L.RegFunction("DeleteConv", DeleteConv);
+		L.RegFunction("GetConvList", GetConvList);
+		L.RegFunction("SendConvTextMessage", SendConvTextMessage);
+		L.RegFunction("SendConvCustomMessage", SendConvCustomMessage);
+		L.RegFunction("CancelSendConvMessage", CancelSendConvMessage);
+		L.RegFunction("RevokeConvMessage", RevokeConvMessage);
+		L.RegFunction("DeleteConvMessage", DeleteConvMessage);
+		L.RegFunction("GetConvMessageList", GetConvMessageList);
+		L.RegFunction("ClearConvHistoryMessage", ClearConvHistoryMessage);
+		L.RegFunction("DeleteConvWith", DeleteConvWith);
+		L.RegFunction("GetConvListWith", GetConvListWith);
+		L.RegFunction("SendConvTextMessageWith", SendConvTextMessageWith);
+		L.RegFunction("SendConvCustomMessageWith", SendConvCustomMessageWith);
+		L.RegFunction("CancelSendConvMessageWith", CancelSendConvMessageWith);
+		L.RegFunction("RevokeConvMessageWith", RevokeConvMessageWith);
+		L.RegFunction("DeleteConvMessageWith", DeleteConvMessageWith);
+		L.RegFunction("GetConvMessageListWith", GetConvMessageListWith);
+		L.RegFunction("ClearConvHistoryMessageWith", ClearConvHistoryMessageWith);
+		L.RegFunction("CreateGroup", CreateGroup);
+		L.RegFunction("DeleteGroup", DeleteGroup);
+		L.RegFunction("DeleteGroupConv", DeleteGroupConv);
+		L.RegFunction("JoinGroup", JoinGroup);
+		L.RegFunction("QuitGroup", QuitGroup);
+		L.RegFunction("SendGroupTextMessage", SendGroupTextMessage);
+		L.RegFunction("SendGroupCustomMessage", SendGroupCustomMessage);
+		L.RegFunction("CancelSendGroupMessage", CancelSendGroupMessage);
+		L.RegFunction("RevokeGroupMessage", RevokeGroupMessage);
+		L.RegFunction("DeleteGroupMessage", DeleteGroupMessage);
+		L.RegFunction("GetGroupMessageList", GetGroupMessageList);
+		L.RegFunction("ClearGroupHistoryMessage", ClearGroupHistoryMessage);
+		L.RegFunction("CreateGroupWith", CreateGroupWith);
+		L.RegFunction("DeleteGroupWith", DeleteGroupWith);
+		L.RegFunction("DeleteGroupConvWith", DeleteGroupConvWith);
+		L.RegFunction("JoinGroupWith", JoinGroupWith);
+		L.RegFunction("QuitGroupWith", QuitGroupWith);
+		L.RegFunction("SendGroupTextMessageWith", SendGroupTextMessageWith);
+		L.RegFunction("SendGroupCustomMessageWith", SendGroupCustomMessageWith);
+		L.RegFunction("CancelSendGroupMessageWith", CancelSendGroupMessageWith);
+		L.RegFunction("RevokeGroupMessageWith", RevokeGroupMessageWith);
+		L.RegFunction("DeleteGroupMessageWith", DeleteGroupMessageWith);
+		L.RegFunction("GetGroupMessageListWith", GetGroupMessageListWith);
+		L.RegFunction("ClearGroupHistoryMessageWith", ClearGroupHistoryMessageWith);
 		L.RegFunction("CustomCallWith", CustomCallWith);
 		L.RegFunction("GetExitDialogPlugin", GetExitDialogPlugin);
 		L.RegFunction("ExitApplication", ExitApplication);
 		L.RegFunction("ExitApplicationWith", ExitApplicationWith);
+		L.RegFunction("ModifySelfUserProfile", ModifySelfUserProfile);
+		L.RegFunction("ModifyFriendProfile", ModifyFriendProfile);
+		L.RegFunction("GetFriendProfileList", GetFriendProfileList);
+		L.RegFunction("GetFriendsInfo", GetFriendsInfo);
+		L.RegFunction("AddFriend", AddFriend);
+		L.RegFunction("DeleteFriend", DeleteFriend);
+		L.RegFunction("CheckFriendType", CheckFriendType);
+		L.RegFunction("AddToBlackList", AddToBlackList);
+		L.RegFunction("GetBlackList", GetBlackList);
+		L.RegFunction("DeleteFromBlackList", DeleteFromBlackList);
+		L.RegFunction("GetRequestList", GetRequestList);
+		L.RegFunction("DeleteRequest", DeleteRequest);
+		L.RegFunction("HandleAgreeRequest", HandleAgreeRequest);
+		L.RegFunction("HandleAgreeAndAddRequest", HandleAgreeAndAddRequest);
+		L.RegFunction("HandleRejectRequest", HandleRejectRequest);
+		L.RegFunction("ModifySelfUserProfileWith", ModifySelfUserProfileWith);
+		L.RegFunction("ModifyFriendProfileWith", ModifyFriendProfileWith);
+		L.RegFunction("GetFriendProfileListWith", GetFriendProfileListWith);
+		L.RegFunction("GetFriendsInfoWith", GetFriendsInfoWith);
+		L.RegFunction("AddFriendWith", AddFriendWith);
+		L.RegFunction("DeleteFriendWith", DeleteFriendWith);
+		L.RegFunction("CheckFriendTypeWith", CheckFriendTypeWith);
+		L.RegFunction("AddToBlackListWith", AddToBlackListWith);
+		L.RegFunction("GetBlackListWith", GetBlackListWith);
+		L.RegFunction("DeleteFromBlackListWith", DeleteFromBlackListWith);
+		L.RegFunction("GetRequestListWith", GetRequestListWith);
+		L.RegFunction("DeleteRequestWith", DeleteRequestWith);
+		L.RegFunction("HandleAgreeRequestWith", HandleAgreeRequestWith);
+		L.RegFunction("HandleAgreeAndAddRequestWith", HandleAgreeAndAddRequestWith);
+		L.RegFunction("HandleRejectRequestWith", HandleRejectRequestWith);
 		L.RegFunction("SetCurrentLanguage", SetCurrentLanguage);
 		L.RegFunction("OnLanguageChanged", OnLanguageChanged);
 		L.RegFunction("GetLoginTypes", GetLoginTypes);
@@ -84,6 +164,8 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("PaymentComplete", PaymentComplete);
 		L.RegFunction("PaymentCompleteWith", PaymentCompleteWith);
 		L.RegFunction("OnPrivacyAuthorization", OnPrivacyAuthorization);
+		L.RegFunction("GetUserProfileList", GetUserProfileList);
+		L.RegFunction("GetUserProfileListWith", GetUserProfileListWith);
 		L.RegFunction("IsPluginEnableVerifyRealName", IsPluginEnableVerifyRealName);
 		L.RegFunction("VerifyRealNameWith", VerifyRealNameWith);
 		L.RegFunction("OnUserRegister", OnUserRegister);
@@ -1027,6 +1109,1757 @@ public class PluginSet_Core_PluginsManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int LoginChat(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				obj.LoginChat(arg0);
+				return 0;
+			}
+			else if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+				obj.LoginChat(arg0, arg1);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.LoginChat");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int LogoutChat(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 1)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				obj.LogoutChat();
+				return 0;
+			}
+			else if (count == 2)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				System.Action<PluginSet.Core.Result> arg0 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 2);
+				obj.LogoutChat(arg0);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.LogoutChat");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int AddNewMessageReceiveCallback(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			System.Action<PluginSet.Core.Result> arg0 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 2);
+			obj.AddNewMessageReceiveCallback(arg0);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int RemoveNewMessageReceiveCallback(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			System.Action<PluginSet.Core.Result> arg0 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 2);
+			obj.RemoveNewMessageReceiveCallback(arg0);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int LoginChatWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.LoginChatWith(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.LoginChatWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.LoginChatWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int LogoutChatWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				obj.LogoutChatWith(arg0);
+				return 0;
+			}
+			else if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+				obj.LogoutChatWith(arg0, arg1);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.LogoutChatWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int AddNewMessageReceiveCallbackWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+			obj.AddNewMessageReceiveCallbackWith(arg0, arg1);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int RemoveNewMessageReceiveCallbackWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+			obj.RemoveNewMessageReceiveCallbackWith(arg0, arg1);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int DeleteConv(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				obj.DeleteConv(arg0);
+				return 0;
+			}
+			else if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+				obj.DeleteConv(arg0, arg1);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.DeleteConv");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetConvList(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			System.Action<PluginSet.Core.Result> arg0 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 2);
+			obj.GetConvList(arg0);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SendConvTextMessage(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string o = obj.SendConvTextMessage(arg0, arg1);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				string o = obj.SendConvTextMessage(arg0, arg1, arg2);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.SendConvTextMessage");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SendConvCustomMessage(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				string o = obj.SendConvCustomMessage(arg0, arg1, arg2);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				string o = obj.SendConvCustomMessage(arg0, arg1, arg2, arg3);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.SendConvCustomMessage");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int CancelSendConvMessage(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.CancelSendConvMessage(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.CancelSendConvMessage(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.CancelSendConvMessage");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int RevokeConvMessage(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.RevokeConvMessage(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.RevokeConvMessage(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.RevokeConvMessage");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int DeleteConvMessage(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.DeleteConvMessage(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.DeleteConvMessage(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.DeleteConvMessage");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetConvMessageList(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+				obj.GetConvMessageList(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				uint arg1 = (uint)LuaDLL.luaL_checknumber(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.GetConvMessageList(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				uint arg1 = (uint)LuaDLL.luaL_checknumber(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				obj.GetConvMessageList(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.GetConvMessageList");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ClearConvHistoryMessage(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				obj.ClearConvHistoryMessage(arg0);
+				return 0;
+			}
+			else if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+				obj.ClearConvHistoryMessage(arg0, arg1);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.ClearConvHistoryMessage");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int DeleteConvWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.DeleteConvWith(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.DeleteConvWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.DeleteConvWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetConvListWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+			obj.GetConvListWith(arg0, arg1);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SendConvTextMessageWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				string o = obj.SendConvTextMessageWith(arg0, arg1, arg2);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				string o = obj.SendConvTextMessageWith(arg0, arg1, arg2, arg3);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.SendConvTextMessageWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SendConvCustomMessageWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				string arg3 = ToLua.CheckString(L, 5);
+				string o = obj.SendConvCustomMessageWith(arg0, arg1, arg2, arg3);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 6)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				string arg3 = ToLua.CheckString(L, 5);
+				System.Action<PluginSet.Core.Result> arg4 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 6);
+				string o = obj.SendConvCustomMessageWith(arg0, arg1, arg2, arg3, arg4);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.SendConvCustomMessageWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int CancelSendConvMessageWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				obj.CancelSendConvMessageWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				obj.CancelSendConvMessageWith(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.CancelSendConvMessageWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int RevokeConvMessageWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				obj.RevokeConvMessageWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				obj.RevokeConvMessageWith(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.RevokeConvMessageWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int DeleteConvMessageWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				obj.DeleteConvMessageWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				obj.DeleteConvMessageWith(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.DeleteConvMessageWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetConvMessageListWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.GetConvMessageListWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				uint arg2 = (uint)LuaDLL.luaL_checknumber(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				obj.GetConvMessageListWith(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else if (count == 6)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				uint arg2 = (uint)LuaDLL.luaL_checknumber(L, 4);
+				string arg3 = ToLua.CheckString(L, 5);
+				System.Action<PluginSet.Core.Result> arg4 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 6);
+				obj.GetConvMessageListWith(arg0, arg1, arg2, arg3, arg4);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.GetConvMessageListWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ClearConvHistoryMessageWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.ClearConvHistoryMessageWith(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.ClearConvHistoryMessageWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.ClearConvHistoryMessageWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int CreateGroup(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.CreateGroup(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.CreateGroup(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.CreateGroup");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int DeleteGroup(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				obj.DeleteGroup(arg0);
+				return 0;
+			}
+			else if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+				obj.DeleteGroup(arg0, arg1);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.DeleteGroup");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int DeleteGroupConv(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				obj.DeleteGroupConv(arg0);
+				return 0;
+			}
+			else if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+				obj.DeleteGroupConv(arg0, arg1);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.DeleteGroupConv");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int JoinGroup(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				obj.JoinGroup(arg0);
+				return 0;
+			}
+			else if (count == 3 && TypeChecker.CheckTypes<System.Action<PluginSet.Core.Result>>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 3);
+				obj.JoinGroup(arg0, arg1);
+				return 0;
+			}
+			else if (count == 3 && TypeChecker.CheckTypes<string>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.ToString(L, 3);
+				obj.JoinGroup(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.JoinGroup(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.JoinGroup");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int QuitGroup(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				obj.QuitGroup(arg0);
+				return 0;
+			}
+			else if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+				obj.QuitGroup(arg0, arg1);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.QuitGroup");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SendGroupTextMessage(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string o = obj.SendGroupTextMessage(arg0, arg1);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				string o = obj.SendGroupTextMessage(arg0, arg1, arg2);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.SendGroupTextMessage");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SendGroupCustomMessage(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				string o = obj.SendGroupCustomMessage(arg0, arg1, arg2);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				string o = obj.SendGroupCustomMessage(arg0, arg1, arg2, arg3);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.SendGroupCustomMessage");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int CancelSendGroupMessage(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.CancelSendGroupMessage(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.CancelSendGroupMessage(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.CancelSendGroupMessage");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int RevokeGroupMessage(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.RevokeGroupMessage(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.RevokeGroupMessage(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.RevokeGroupMessage");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int DeleteGroupMessage(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.DeleteGroupMessage(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.DeleteGroupMessage(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.DeleteGroupMessage");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetGroupMessageList(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+				obj.GetGroupMessageList(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				uint arg1 = (uint)LuaDLL.luaL_checknumber(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.GetGroupMessageList(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				uint arg1 = (uint)LuaDLL.luaL_checknumber(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				obj.GetGroupMessageList(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.GetGroupMessageList");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ClearGroupHistoryMessage(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				obj.ClearGroupHistoryMessage(arg0);
+				return 0;
+			}
+			else if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+				obj.ClearGroupHistoryMessage(arg0, arg1);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.ClearGroupHistoryMessage");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int CreateGroupWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				obj.CreateGroupWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				obj.CreateGroupWith(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.CreateGroupWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int DeleteGroupWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.DeleteGroupWith(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.DeleteGroupWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.DeleteGroupWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int DeleteGroupConvWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.DeleteGroupConvWith(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.DeleteGroupConvWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.DeleteGroupConvWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int JoinGroupWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.JoinGroupWith(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4 && TypeChecker.CheckTypes<System.Action<PluginSet.Core.Result>>(L, 4))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 4);
+				obj.JoinGroupWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 4 && TypeChecker.CheckTypes<string>(L, 4))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.ToString(L, 4);
+				obj.JoinGroupWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				obj.JoinGroupWith(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.JoinGroupWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int QuitGroupWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.QuitGroupWith(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.QuitGroupWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.QuitGroupWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SendGroupTextMessageWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				string o = obj.SendGroupTextMessageWith(arg0, arg1, arg2);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				string o = obj.SendGroupTextMessageWith(arg0, arg1, arg2, arg3);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.SendGroupTextMessageWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SendGroupCustomMessageWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				string arg3 = ToLua.CheckString(L, 5);
+				string o = obj.SendGroupCustomMessageWith(arg0, arg1, arg2, arg3);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 6)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				string arg3 = ToLua.CheckString(L, 5);
+				System.Action<PluginSet.Core.Result> arg4 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 6);
+				string o = obj.SendGroupCustomMessageWith(arg0, arg1, arg2, arg3, arg4);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.SendGroupCustomMessageWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int CancelSendGroupMessageWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				obj.CancelSendGroupMessageWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				obj.CancelSendGroupMessageWith(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.CancelSendGroupMessageWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int RevokeGroupMessageWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				obj.RevokeGroupMessageWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				obj.RevokeGroupMessageWith(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.RevokeGroupMessageWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int DeleteGroupMessageWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				obj.DeleteGroupMessageWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				obj.DeleteGroupMessageWith(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.DeleteGroupMessageWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetGroupMessageListWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.GetGroupMessageListWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				uint arg2 = (uint)LuaDLL.luaL_checknumber(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				obj.GetGroupMessageListWith(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else if (count == 6)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				uint arg2 = (uint)LuaDLL.luaL_checknumber(L, 4);
+				string arg3 = ToLua.CheckString(L, 5);
+				System.Action<PluginSet.Core.Result> arg4 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 6);
+				obj.GetGroupMessageListWith(arg0, arg1, arg2, arg3, arg4);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.GetGroupMessageListWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ClearGroupHistoryMessageWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.ClearGroupHistoryMessageWith(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.ClearGroupHistoryMessageWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.ClearGroupHistoryMessageWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int CustomCallWith(IntPtr L)
 	{
 		try
@@ -1133,6 +2966,1091 @@ public class PluginSet_Core_PluginsManagerWrap
 			string arg0 = ToLua.CheckString(L, 2);
 			obj.ExitApplicationWith(arg0);
 			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ModifySelfUserProfile(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				obj.ModifySelfUserProfile(arg0);
+				return 0;
+			}
+			else if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+				obj.ModifySelfUserProfile(arg0, arg1);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.ModifySelfUserProfile");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ModifyFriendProfile(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.ModifyFriendProfile(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.ModifyFriendProfile(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.ModifyFriendProfile");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetFriendProfileList(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			System.Action<PluginSet.Core.Result> arg0 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 2);
+			obj.GetFriendProfileList(arg0);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetFriendsInfo(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>, System.Action<PluginSet.Core.Result>>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				System.Collections.Generic.List<string> arg0 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 3);
+				obj.GetFriendsInfo(arg0, arg1);
+				return 0;
+			}
+			else if (count == 3 && TypeChecker.CheckTypes<string, System.Action<PluginSet.Core.Result>>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.ToString(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 3);
+				obj.GetFriendsInfo(arg0, arg1);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.GetFriendsInfo");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int AddFriend(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.AddFriend(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.AddFriend(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.AddFriend");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int DeleteFriend(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>, bool>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				System.Collections.Generic.List<string> arg0 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 2);
+				bool arg1 = LuaDLL.lua_toboolean(L, 3);
+				obj.DeleteFriend(arg0, arg1);
+				return 0;
+			}
+			else if (count == 3 && TypeChecker.CheckTypes<string, bool>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.ToString(L, 2);
+				bool arg1 = LuaDLL.lua_toboolean(L, 3);
+				obj.DeleteFriend(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>, bool, System.Action<PluginSet.Core.Result>>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				System.Collections.Generic.List<string> arg0 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 2);
+				bool arg1 = LuaDLL.lua_toboolean(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 4);
+				obj.DeleteFriend(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 4 && TypeChecker.CheckTypes<string, bool, System.Action<PluginSet.Core.Result>>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.ToString(L, 2);
+				bool arg1 = LuaDLL.lua_toboolean(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 4);
+				obj.DeleteFriend(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.DeleteFriend");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int CheckFriendType(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>, bool, System.Action<PluginSet.Core.Result>>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				System.Collections.Generic.List<string> arg0 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 2);
+				bool arg1 = LuaDLL.lua_toboolean(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 4);
+				obj.CheckFriendType(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 4 && TypeChecker.CheckTypes<string, bool, System.Action<PluginSet.Core.Result>>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.ToString(L, 2);
+				bool arg1 = LuaDLL.lua_toboolean(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 4);
+				obj.CheckFriendType(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.CheckFriendType");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int AddToBlackList(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				System.Collections.Generic.List<string> arg0 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 2);
+				obj.AddToBlackList(arg0);
+				return 0;
+			}
+			else if (count == 2 && TypeChecker.CheckTypes<string>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.ToString(L, 2);
+				obj.AddToBlackList(arg0);
+				return 0;
+			}
+			else if (count == 3 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>, System.Action<PluginSet.Core.Result>>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				System.Collections.Generic.List<string> arg0 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 3);
+				obj.AddToBlackList(arg0, arg1);
+				return 0;
+			}
+			else if (count == 3 && TypeChecker.CheckTypes<string, System.Action<PluginSet.Core.Result>>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.ToString(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 3);
+				obj.AddToBlackList(arg0, arg1);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.AddToBlackList");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetBlackList(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			System.Action<PluginSet.Core.Result> arg0 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 2);
+			obj.GetBlackList(arg0);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int DeleteFromBlackList(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				System.Collections.Generic.List<string> arg0 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 2);
+				obj.DeleteFromBlackList(arg0);
+				return 0;
+			}
+			else if (count == 2 && TypeChecker.CheckTypes<string>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.ToString(L, 2);
+				obj.DeleteFromBlackList(arg0);
+				return 0;
+			}
+			else if (count == 3 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>, System.Action<PluginSet.Core.Result>>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				System.Collections.Generic.List<string> arg0 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 3);
+				obj.DeleteFromBlackList(arg0, arg1);
+				return 0;
+			}
+			else if (count == 3 && TypeChecker.CheckTypes<string, System.Action<PluginSet.Core.Result>>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.ToString(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 3);
+				obj.DeleteFromBlackList(arg0, arg1);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.DeleteFromBlackList");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetRequestList(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			System.Action<PluginSet.Core.Result> arg0 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 2);
+			obj.GetRequestList(arg0);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int DeleteRequest(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				System.Collections.Generic.List<string> arg0 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 2);
+				obj.DeleteRequest(arg0);
+				return 0;
+			}
+			else if (count == 2 && TypeChecker.CheckTypes<string>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.ToString(L, 2);
+				obj.DeleteRequest(arg0);
+				return 0;
+			}
+			else if (count == 3 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>, System.Action<PluginSet.Core.Result>>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				System.Collections.Generic.List<string> arg0 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 3);
+				obj.DeleteRequest(arg0, arg1);
+				return 0;
+			}
+			else if (count == 3 && TypeChecker.CheckTypes<string, System.Action<PluginSet.Core.Result>>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.ToString(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 3);
+				obj.DeleteRequest(arg0, arg1);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.DeleteRequest");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int HandleAgreeRequest(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.HandleAgreeRequest(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.HandleAgreeRequest(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.HandleAgreeRequest");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int HandleAgreeAndAddRequest(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.HandleAgreeAndAddRequest(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.HandleAgreeAndAddRequest(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.HandleAgreeAndAddRequest");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int HandleRejectRequest(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.HandleRejectRequest(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.HandleRejectRequest(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.HandleRejectRequest");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ModifySelfUserProfileWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.ModifySelfUserProfileWith(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.ModifySelfUserProfileWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.ModifySelfUserProfileWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ModifyFriendProfileWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				obj.ModifyFriendProfileWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				obj.ModifyFriendProfileWith(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.ModifyFriendProfileWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetFriendProfileListWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+			obj.GetFriendProfileListWith(arg0, arg1);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetFriendsInfoWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>, System.Action<PluginSet.Core.Result>>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Collections.Generic.List<string> arg1 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 4);
+				obj.GetFriendsInfoWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 4 && TypeChecker.CheckTypes<string, System.Action<PluginSet.Core.Result>>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.ToString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 4);
+				obj.GetFriendsInfoWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.GetFriendsInfoWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int AddFriendWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				obj.AddFriendWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				obj.AddFriendWith(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.AddFriendWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int DeleteFriendWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>, bool>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Collections.Generic.List<string> arg1 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 3);
+				bool arg2 = LuaDLL.lua_toboolean(L, 4);
+				obj.DeleteFriendWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 4 && TypeChecker.CheckTypes<string, bool>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.ToString(L, 3);
+				bool arg2 = LuaDLL.lua_toboolean(L, 4);
+				obj.DeleteFriendWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 5 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>, bool, System.Action<PluginSet.Core.Result>>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Collections.Generic.List<string> arg1 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 3);
+				bool arg2 = LuaDLL.lua_toboolean(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 5);
+				obj.DeleteFriendWith(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else if (count == 5 && TypeChecker.CheckTypes<string, bool, System.Action<PluginSet.Core.Result>>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.ToString(L, 3);
+				bool arg2 = LuaDLL.lua_toboolean(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 5);
+				obj.DeleteFriendWith(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.DeleteFriendWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int CheckFriendTypeWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 5 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>, bool, System.Action<PluginSet.Core.Result>>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Collections.Generic.List<string> arg1 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 3);
+				bool arg2 = LuaDLL.lua_toboolean(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 5);
+				obj.CheckFriendTypeWith(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else if (count == 5 && TypeChecker.CheckTypes<string, bool, System.Action<PluginSet.Core.Result>>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.ToString(L, 3);
+				bool arg2 = LuaDLL.lua_toboolean(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 5);
+				obj.CheckFriendTypeWith(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.CheckFriendTypeWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int AddToBlackListWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Collections.Generic.List<string> arg1 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 3);
+				obj.AddToBlackListWith(arg0, arg1);
+				return 0;
+			}
+			else if (count == 3 && TypeChecker.CheckTypes<string>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.ToString(L, 3);
+				obj.AddToBlackListWith(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>, System.Action<PluginSet.Core.Result>>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Collections.Generic.List<string> arg1 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 4);
+				obj.AddToBlackListWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 4 && TypeChecker.CheckTypes<string, System.Action<PluginSet.Core.Result>>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.ToString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 4);
+				obj.AddToBlackListWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.AddToBlackListWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetBlackListWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+			obj.GetBlackListWith(arg0, arg1);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int DeleteFromBlackListWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Collections.Generic.List<string> arg1 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 3);
+				obj.DeleteFromBlackListWith(arg0, arg1);
+				return 0;
+			}
+			else if (count == 3 && TypeChecker.CheckTypes<string>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.ToString(L, 3);
+				obj.DeleteFromBlackListWith(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>, System.Action<PluginSet.Core.Result>>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Collections.Generic.List<string> arg1 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 4);
+				obj.DeleteFromBlackListWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 4 && TypeChecker.CheckTypes<string, System.Action<PluginSet.Core.Result>>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.ToString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 4);
+				obj.DeleteFromBlackListWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.DeleteFromBlackListWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetRequestListWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+			obj.GetRequestListWith(arg0, arg1);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int DeleteRequestWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Collections.Generic.List<string> arg1 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 3);
+				obj.DeleteRequestWith(arg0, arg1);
+				return 0;
+			}
+			else if (count == 3 && TypeChecker.CheckTypes<string>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.ToString(L, 3);
+				obj.DeleteRequestWith(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>, System.Action<PluginSet.Core.Result>>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Collections.Generic.List<string> arg1 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 4);
+				obj.DeleteRequestWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 4 && TypeChecker.CheckTypes<string, System.Action<PluginSet.Core.Result>>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.ToString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 4);
+				obj.DeleteRequestWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.DeleteRequestWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int HandleAgreeRequestWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				obj.HandleAgreeRequestWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				obj.HandleAgreeRequestWith(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.HandleAgreeRequestWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int HandleAgreeAndAddRequestWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				obj.HandleAgreeAndAddRequestWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				obj.HandleAgreeAndAddRequestWith(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.HandleAgreeAndAddRequestWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int HandleRejectRequestWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				obj.HandleRejectRequestWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				obj.HandleRejectRequestWith(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.HandleRejectRequestWith");
+			}
 		}
 		catch (Exception e)
 		{
@@ -1913,6 +4831,76 @@ public class PluginSet_Core_PluginsManagerWrap
 			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
 			obj.OnPrivacyAuthorization();
 			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetUserProfileList(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>, System.Action<PluginSet.Core.Result>>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				System.Collections.Generic.List<string> arg0 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 3);
+				obj.GetUserProfileList(arg0, arg1);
+				return 0;
+			}
+			else if (count == 3 && TypeChecker.CheckTypes<string, System.Action<PluginSet.Core.Result>>(L, 2))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.ToString(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 3);
+				obj.GetUserProfileList(arg0, arg1);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.GetUserProfileList");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetUserProfileListWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4 && TypeChecker.CheckTypes<System.Collections.Generic.List<string>, System.Action<PluginSet.Core.Result>>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Collections.Generic.List<string> arg1 = (System.Collections.Generic.List<string>)ToLua.ToObject(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 4);
+				obj.GetUserProfileListWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 4 && TypeChecker.CheckTypes<string, System.Action<PluginSet.Core.Result>>(L, 3))
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.ToString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 4);
+				obj.GetUserProfileListWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.GetUserProfileListWith");
+			}
 		}
 		catch (Exception e)
 		{

@@ -75,6 +75,10 @@ public class PluginSet_Core_PluginConstantsWrap
 		L.RegVar("IAP_ON_INIT_FAILED", get_IAP_ON_INIT_FAILED, null);
 		L.RegVar("IAP_CALLBACK_LOST_PAYMENTS", get_IAP_CALLBACK_LOST_PAYMENTS, null);
 		L.RegVar("NOTIFY_AGREE_PRIVACY", get_NOTIFY_AGREE_PRIVACY, null);
+		L.RegVar("CHAT_LOGIN", get_CHAT_LOGIN, null);
+		L.RegVar("CHAT_LOGOUT", get_CHAT_LOGOUT, null);
+		L.RegVar("CHAT_NETWORK_ONLINE", get_CHAT_NETWORK_ONLINE, null);
+		L.RegVar("CHAT_NETWORK_OFFLINE", get_CHAT_NETWORK_OFFLINE, null);
 		L.EndStaticLibs();
 	}
 
@@ -910,6 +914,62 @@ public class PluginSet_Core_PluginConstantsWrap
 		try
 		{
 			LuaDLL.lua_pushstring(L, PluginSet.Core.PluginConstants.NOTIFY_AGREE_PRIVACY);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_CHAT_LOGIN(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, PluginSet.Core.PluginConstants.CHAT_LOGIN);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_CHAT_LOGOUT(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, PluginSet.Core.PluginConstants.CHAT_LOGOUT);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_CHAT_NETWORK_ONLINE(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, PluginSet.Core.PluginConstants.CHAT_NETWORK_ONLINE);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_CHAT_NETWORK_OFFLINE(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, PluginSet.Core.PluginConstants.CHAT_NETWORK_OFFLINE);
 			return 1;
 		}
 		catch (Exception e)
