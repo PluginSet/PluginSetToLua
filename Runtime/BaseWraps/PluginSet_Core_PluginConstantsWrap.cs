@@ -79,6 +79,11 @@ public class PluginSet_Core_PluginConstantsWrap
 		L.RegVar("CHAT_LOGOUT", get_CHAT_LOGOUT, null);
 		L.RegVar("CHAT_NETWORK_ONLINE", get_CHAT_NETWORK_ONLINE, null);
 		L.RegVar("CHAT_NETWORK_OFFLINE", get_CHAT_NETWORK_OFFLINE, null);
+		L.RegVar("FRIEND_PREPARED", get_FRIEND_PREPARED, null);
+		L.RegVar("FRIEND_ADD_FRIEND", get_FRIEND_ADD_FRIEND, null);
+		L.RegVar("FRIEND_DELETE_FRIEND", get_FRIEND_DELETE_FRIEND, null);
+		L.RegVar("FRIEND_UPDATE_PROFILE", get_FRIEND_UPDATE_PROFILE, null);
+		L.RegVar("FRIEND_ADD_REQUEST", get_FRIEND_ADD_REQUEST, null);
 		L.EndStaticLibs();
 	}
 
@@ -970,6 +975,76 @@ public class PluginSet_Core_PluginConstantsWrap
 		try
 		{
 			LuaDLL.lua_pushstring(L, PluginSet.Core.PluginConstants.CHAT_NETWORK_OFFLINE);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_FRIEND_PREPARED(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, PluginSet.Core.PluginConstants.FRIEND_PREPARED);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_FRIEND_ADD_FRIEND(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, PluginSet.Core.PluginConstants.FRIEND_ADD_FRIEND);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_FRIEND_DELETE_FRIEND(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, PluginSet.Core.PluginConstants.FRIEND_DELETE_FRIEND);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_FRIEND_UPDATE_PROFILE(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, PluginSet.Core.PluginConstants.FRIEND_UPDATE_PROFILE);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_FRIEND_ADD_REQUEST(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, PluginSet.Core.PluginConstants.FRIEND_ADD_REQUEST);
 			return 1;
 		}
 		catch (Exception e)
