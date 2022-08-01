@@ -128,6 +128,7 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("ModifyFriendProfile", ModifyFriendProfile);
 		L.RegFunction("GetFriendProfileList", GetFriendProfileList);
 		L.RegFunction("GetFriendsInfo", GetFriendsInfo);
+		L.RegFunction("SearchFriends", SearchFriends);
 		L.RegFunction("AddFriend", AddFriend);
 		L.RegFunction("DeleteFriend", DeleteFriend);
 		L.RegFunction("CheckFriendType", CheckFriendType);
@@ -143,6 +144,7 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("ModifyFriendProfileWith", ModifyFriendProfileWith);
 		L.RegFunction("GetFriendProfileListWith", GetFriendProfileListWith);
 		L.RegFunction("GetFriendsInfoWith", GetFriendsInfoWith);
+		L.RegFunction("SearchFriendsWith", SearchFriendsWith);
 		L.RegFunction("AddFriendWith", AddFriendWith);
 		L.RegFunction("DeleteFriendWith", DeleteFriendWith);
 		L.RegFunction("CheckFriendTypeWith", CheckFriendTypeWith);
@@ -3537,6 +3539,24 @@ public class PluginSet_Core_PluginsManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SearchFriends(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+			obj.SearchFriends(arg0, arg1);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int AddFriend(IntPtr L)
 	{
 		try
@@ -4061,6 +4081,25 @@ public class PluginSet_Core_PluginsManagerWrap
 			{
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.GetFriendsInfoWith");
 			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SearchFriendsWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 4);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			string arg1 = ToLua.CheckString(L, 3);
+			System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+			obj.SearchFriendsWith(arg0, arg1, arg2);
+			return 0;
 		}
 		catch (Exception e)
 		{
