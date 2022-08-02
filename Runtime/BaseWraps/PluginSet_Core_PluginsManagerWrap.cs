@@ -85,6 +85,7 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("DeleteConvMessage", DeleteConvMessage);
 		L.RegFunction("GetConvMessageList", GetConvMessageList);
 		L.RegFunction("ClearConvHistoryMessage", ClearConvHistoryMessage);
+		L.RegFunction("ReportReadConvMessage", ReportReadConvMessage);
 		L.RegFunction("AddNewConvCallbackWith", AddNewConvCallbackWith);
 		L.RegFunction("RemoveNewConvCallbackWith", RemoveNewConvCallbackWith);
 		L.RegFunction("DeleteConvWith", DeleteConvWith);
@@ -96,6 +97,7 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("DeleteConvMessageWith", DeleteConvMessageWith);
 		L.RegFunction("GetConvMessageListWith", GetConvMessageListWith);
 		L.RegFunction("ClearConvHistoryMessageWith", ClearConvHistoryMessageWith);
+		L.RegFunction("ReportReadConvMessageWith", ReportReadConvMessageWith);
 		L.RegFunction("CreateGroup", CreateGroup);
 		L.RegFunction("DeleteGroup", DeleteGroup);
 		L.RegFunction("DeleteGroupConv", DeleteGroupConv);
@@ -108,6 +110,7 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("DeleteGroupMessage", DeleteGroupMessage);
 		L.RegFunction("GetGroupMessageList", GetGroupMessageList);
 		L.RegFunction("ClearGroupHistoryMessage", ClearGroupHistoryMessage);
+		L.RegFunction("ReportReadGroupMessage", ReportReadGroupMessage);
 		L.RegFunction("CreateGroupWith", CreateGroupWith);
 		L.RegFunction("DeleteGroupWith", DeleteGroupWith);
 		L.RegFunction("DeleteGroupConvWith", DeleteGroupConvWith);
@@ -120,6 +123,7 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("DeleteGroupMessageWith", DeleteGroupMessageWith);
 		L.RegFunction("GetGroupMessageListWith", GetGroupMessageListWith);
 		L.RegFunction("ClearGroupHistoryMessageWith", ClearGroupHistoryMessageWith);
+		L.RegFunction("ReportReadGroupMessageWith", ReportReadGroupMessageWith);
 		L.RegFunction("CustomCallWith", CustomCallWith);
 		L.RegFunction("GetExitDialogPlugin", GetExitDialogPlugin);
 		L.RegFunction("ExitApplication", ExitApplication);
@@ -2030,6 +2034,41 @@ public class PluginSet_Core_PluginsManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ReportReadConvMessage(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.ReportReadConvMessage(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.ReportReadConvMessage(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.ReportReadConvMessage");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int AddNewConvCallbackWith(IntPtr L)
 	{
 		try
@@ -2384,6 +2423,43 @@ public class PluginSet_Core_PluginsManagerWrap
 			else
 			{
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.ClearConvHistoryMessageWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ReportReadConvMessageWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				obj.ReportReadConvMessageWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				obj.ReportReadConvMessageWith(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.ReportReadConvMessageWith");
 			}
 		}
 		catch (Exception e)
@@ -2827,6 +2903,41 @@ public class PluginSet_Core_PluginsManagerWrap
 			else
 			{
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.ClearGroupHistoryMessage");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ReportReadGroupMessage(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.ReportReadGroupMessage(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.ReportReadGroupMessage(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.ReportReadGroupMessage");
 			}
 		}
 		catch (Exception e)
@@ -3297,6 +3408,43 @@ public class PluginSet_Core_PluginsManagerWrap
 			else
 			{
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.ClearGroupHistoryMessageWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ReportReadGroupMessageWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				obj.ReportReadGroupMessageWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				obj.ReportReadGroupMessageWith(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.ReportReadGroupMessageWith");
 			}
 		}
 		catch (Exception e)
