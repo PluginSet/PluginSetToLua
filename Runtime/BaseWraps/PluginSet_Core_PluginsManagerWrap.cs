@@ -50,6 +50,7 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("RemoveRemoteStateChangeCallback", RemoveRemoteStateChangeCallback);
 		L.RegFunction("StartLocalAudio", StartLocalAudio);
 		L.RegFunction("StopLocalAudio", StopLocalAudio);
+		L.RegFunction("IsRemoteMute", IsRemoteMute);
 		L.RegFunction("MuteRemoteAudio", MuteRemoteAudio);
 		L.RegFunction("MuteAllRemoteAudio", MuteAllRemoteAudio);
 		L.RegFunction("GetAudioCaptureVolume", GetAudioCaptureVolume);
@@ -60,6 +61,7 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("RemoveRemoteStateChangeCallbackWith", RemoveRemoteStateChangeCallbackWith);
 		L.RegFunction("StartLocalAudioWith", StartLocalAudioWith);
 		L.RegFunction("StopLocalAudioWith", StopLocalAudioWith);
+		L.RegFunction("IsRemoteMuteWith", IsRemoteMuteWith);
 		L.RegFunction("MuteRemoteAudioWith", MuteRemoteAudioWith);
 		L.RegFunction("MuteAllRemoteAudioWith", MuteAllRemoteAudioWith);
 		L.RegFunction("GetAudioCaptureVolumeWith", GetAudioCaptureVolumeWith);
@@ -1206,6 +1208,24 @@ public class PluginSet_Core_PluginsManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int IsRemoteMute(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			bool o = obj.IsRemoteMute(arg0);
+			LuaDLL.lua_pushboolean(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int MuteRemoteAudio(IntPtr L)
 	{
 		try
@@ -1372,6 +1392,25 @@ public class PluginSet_Core_PluginsManagerWrap
 			string arg0 = ToLua.CheckString(L, 2);
 			obj.StopLocalAudioWith(arg0);
 			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int IsRemoteMuteWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			string arg1 = ToLua.CheckString(L, 3);
+			bool o = obj.IsRemoteMuteWith(arg0, arg1);
+			LuaDLL.lua_pushboolean(L, o);
+			return 1;
 		}
 		catch (Exception e)
 		{
