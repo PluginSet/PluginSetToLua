@@ -50,6 +50,8 @@ public class PluginSet_Core_PluginConstantsWrap
 		L.RegVar("NOTIFY_ACCOUNT_SWITCH", get_NOTIFY_ACCOUNT_SWITCH, null);
 		L.RegVar("NOTIFY_APPLICATION_ENTER_BACKGROUND", get_NOTIFY_APPLICATION_ENTER_BACKGROUND, null);
 		L.RegVar("NOTIFY_APPLICATION_ENTER_FOREGROUND", get_NOTIFY_APPLICATION_ENTER_FOREGROUND, null);
+		L.RegVar("NOTIFY_APPLICATION_PAUSE_SOUNDS", get_NOTIFY_APPLICATION_PAUSE_SOUNDS, null);
+		L.RegVar("NOTIFY_APPLICATION_RESUME_SOUNDS", get_NOTIFY_APPLICATION_RESUME_SOUNDS, null);
 		L.RegVar("NOTIFY_ON_REWARD_LOAD_START", get_NOTIFY_ON_REWARD_LOAD_START, null);
 		L.RegVar("NOTIFY_ON_REWARD_LOAD_SUCCESS", get_NOTIFY_ON_REWARD_LOAD_SUCCESS, null);
 		L.RegVar("NOTIFY_ON_REWARD_LOAD_FAIL", get_NOTIFY_ON_REWARD_LOAD_FAIL, null);
@@ -569,6 +571,34 @@ public class PluginSet_Core_PluginConstantsWrap
 		try
 		{
 			LuaDLL.lua_pushstring(L, PluginSet.Core.PluginConstants.NOTIFY_APPLICATION_ENTER_FOREGROUND);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_NOTIFY_APPLICATION_PAUSE_SOUNDS(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, PluginSet.Core.PluginConstants.NOTIFY_APPLICATION_PAUSE_SOUNDS);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_NOTIFY_APPLICATION_RESUME_SOUNDS(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, PluginSet.Core.PluginConstants.NOTIFY_APPLICATION_RESUME_SOUNDS);
 			return 1;
 		}
 		catch (Exception e)

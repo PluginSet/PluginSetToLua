@@ -1308,6 +1308,15 @@ public class PluginSet_Core_PluginsManagerWrap
 				obj.PlayRecordFile(arg0, arg1);
 				return 0;
 			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.PlayRecordFile(arg0, arg1, arg2);
+				return 0;
+			}
 			else
 			{
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.PlayRecordFile");
@@ -1443,6 +1452,16 @@ public class PluginSet_Core_PluginsManagerWrap
 				string arg1 = ToLua.CheckString(L, 3);
 				string arg2 = ToLua.CheckString(L, 4);
 				obj.PlayRecordFileWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				obj.PlayRecordFileWith(arg0, arg1, arg2, arg3);
 				return 0;
 			}
 			else
