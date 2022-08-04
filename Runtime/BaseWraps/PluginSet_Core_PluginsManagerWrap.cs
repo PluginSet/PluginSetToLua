@@ -44,6 +44,8 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("CustomEventWith", CustomEventWith);
 		L.RegFunction("StartLocalAudio", StartLocalAudio);
 		L.RegFunction("StopLocalAudio", StopLocalAudio);
+		L.RegFunction("PauseLocalAudio", PauseLocalAudio);
+		L.RegFunction("ResumeLocalAudio", ResumeLocalAudio);
 		L.RegFunction("StartLocalAudioWith", StartLocalAudioWith);
 		L.RegFunction("StopLocalAudioWith", StopLocalAudioWith);
 		L.RegFunction("StartRecording", StartRecording);
@@ -1127,6 +1129,38 @@ public class PluginSet_Core_PluginsManagerWrap
 			ToLua.CheckArgsCount(L, 1);
 			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
 			obj.StopLocalAudio();
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int PauseLocalAudio(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			obj.PauseLocalAudio();
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ResumeLocalAudio(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			obj.ResumeLocalAudio();
 			return 0;
 		}
 		catch (Exception e)
