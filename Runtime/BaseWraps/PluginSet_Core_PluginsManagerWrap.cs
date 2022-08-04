@@ -42,14 +42,28 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("ShowRewardAdWith", ShowRewardAdWith);
 		L.RegFunction("CustomEvent", CustomEvent);
 		L.RegFunction("CustomEventWith", CustomEventWith);
+		L.RegFunction("StartLocalAudio", StartLocalAudio);
+		L.RegFunction("StopLocalAudio", StopLocalAudio);
+		L.RegFunction("StartLocalAudioWith", StartLocalAudioWith);
+		L.RegFunction("StopLocalAudioWith", StopLocalAudioWith);
+		L.RegFunction("StartRecording", StartRecording);
+		L.RegFunction("StopRecording", StopRecording);
+		L.RegFunction("CancelRecording", CancelRecording);
+		L.RegFunction("PlayRecordFile", PlayRecordFile);
+		L.RegFunction("StopPlayRecord", StopPlayRecord);
+		L.RegFunction("SetMicVolume", SetMicVolume);
+		L.RegFunction("StartRecordingWith", StartRecordingWith);
+		L.RegFunction("StopRecordingWith", StopRecordingWith);
+		L.RegFunction("CancelRecordingWith", CancelRecordingWith);
+		L.RegFunction("PlayRecordFileWith", PlayRecordFileWith);
+		L.RegFunction("StopPlayRecordWith", StopPlayRecordWith);
+		L.RegFunction("SetMicVolumeWith", SetMicVolumeWith);
 		L.RegFunction("GetChannelName", GetChannelName);
 		L.RegFunction("GetChannelNameWith", GetChannelNameWith);
 		L.RegFunction("GetChannelId", GetChannelId);
 		L.RegFunction("GetChannelIdWith", GetChannelIdWith);
 		L.RegFunction("AddRemoteStateChangeCallback", AddRemoteStateChangeCallback);
 		L.RegFunction("RemoveRemoteStateChangeCallback", RemoveRemoteStateChangeCallback);
-		L.RegFunction("StartLocalAudio", StartLocalAudio);
-		L.RegFunction("StopLocalAudio", StopLocalAudio);
 		L.RegFunction("IsRemoteMute", IsRemoteMute);
 		L.RegFunction("MuteRemoteAudio", MuteRemoteAudio);
 		L.RegFunction("MuteAllRemoteAudio", MuteAllRemoteAudio);
@@ -59,8 +73,6 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("SetAudioPlayVolume", SetAudioPlayVolume);
 		L.RegFunction("AddRemoteStateChangeCallbackWith", AddRemoteStateChangeCallbackWith);
 		L.RegFunction("RemoveRemoteStateChangeCallbackWith", RemoveRemoteStateChangeCallbackWith);
-		L.RegFunction("StartLocalAudioWith", StartLocalAudioWith);
-		L.RegFunction("StopLocalAudioWith", StopLocalAudioWith);
 		L.RegFunction("IsRemoteMuteWith", IsRemoteMuteWith);
 		L.RegFunction("MuteRemoteAudioWith", MuteRemoteAudioWith);
 		L.RegFunction("MuteAllRemoteAudioWith", MuteAllRemoteAudioWith);
@@ -81,6 +93,7 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("DeleteConv", DeleteConv);
 		L.RegFunction("GetConvList", GetConvList);
 		L.RegFunction("SendConvTextMessage", SendConvTextMessage);
+		L.RegFunction("SendConvSoundMessage", SendConvSoundMessage);
 		L.RegFunction("SendConvCustomMessage", SendConvCustomMessage);
 		L.RegFunction("CancelSendConvMessage", CancelSendConvMessage);
 		L.RegFunction("RevokeConvMessage", RevokeConvMessage);
@@ -93,6 +106,7 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("DeleteConvWith", DeleteConvWith);
 		L.RegFunction("GetConvListWith", GetConvListWith);
 		L.RegFunction("SendConvTextMessageWith", SendConvTextMessageWith);
+		L.RegFunction("SendConvSoundMessageWith", SendConvSoundMessageWith);
 		L.RegFunction("SendConvCustomMessageWith", SendConvCustomMessageWith);
 		L.RegFunction("CancelSendConvMessageWith", CancelSendConvMessageWith);
 		L.RegFunction("RevokeConvMessageWith", RevokeConvMessageWith);
@@ -106,6 +120,7 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("JoinGroup", JoinGroup);
 		L.RegFunction("QuitGroup", QuitGroup);
 		L.RegFunction("SendGroupTextMessage", SendGroupTextMessage);
+		L.RegFunction("SendGroupSoundMessage", SendGroupSoundMessage);
 		L.RegFunction("SendGroupCustomMessage", SendGroupCustomMessage);
 		L.RegFunction("CancelSendGroupMessage", CancelSendGroupMessage);
 		L.RegFunction("RevokeGroupMessage", RevokeGroupMessage);
@@ -119,6 +134,7 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("JoinGroupWith", JoinGroupWith);
 		L.RegFunction("QuitGroupWith", QuitGroupWith);
 		L.RegFunction("SendGroupTextMessageWith", SendGroupTextMessageWith);
+		L.RegFunction("SendGroupSoundMessageWith", SendGroupSoundMessageWith);
 		L.RegFunction("SendGroupCustomMessageWith", SendGroupCustomMessageWith);
 		L.RegFunction("CancelSendGroupMessageWith", CancelSendGroupMessageWith);
 		L.RegFunction("RevokeGroupMessageWith", RevokeGroupMessageWith);
@@ -1071,6 +1087,377 @@ public class PluginSet_Core_PluginsManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int StartLocalAudio(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				obj.StartLocalAudio(arg0);
+				return 0;
+			}
+			else if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+				obj.StartLocalAudio(arg0, arg1);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.StartLocalAudio");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int StopLocalAudio(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			obj.StopLocalAudio();
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int StartLocalAudioWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.StartLocalAudioWith(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.StartLocalAudioWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.StartLocalAudioWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int StopLocalAudioWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			obj.StopLocalAudioWith(arg0);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int StartRecording(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				obj.StartRecording(arg0);
+				return 0;
+			}
+			else if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+				obj.StartRecording(arg0, arg1);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.StartRecording");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int StopRecording(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			obj.StopRecording();
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int CancelRecording(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			obj.CancelRecording();
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int PlayRecordFile(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				obj.PlayRecordFile(arg0);
+				return 0;
+			}
+			else if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.PlayRecordFile(arg0, arg1);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.PlayRecordFile");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int StopPlayRecord(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			obj.StopPlayRecord();
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SetMicVolume(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
+			obj.SetMicVolume(arg0);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int StartRecordingWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.StartRecordingWith(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				obj.StartRecordingWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.StartRecordingWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int StopRecordingWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			obj.StopRecordingWith(arg0);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int CancelRecordingWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			obj.CancelRecordingWith(arg0);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int PlayRecordFileWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.PlayRecordFileWith(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				obj.PlayRecordFileWith(arg0, arg1, arg2);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.PlayRecordFileWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int StopPlayRecordWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			obj.StopPlayRecordWith(arg0);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SetMicVolumeWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
+			obj.SetMicVolumeWith(arg0, arg1);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int GetChannelName(IntPtr L)
 	{
 		try
@@ -1166,55 +1553,6 @@ public class PluginSet_Core_PluginsManagerWrap
 			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
 			System.Action<PluginSet.Core.Result> arg0 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 2);
 			obj.RemoveRemoteStateChangeCallback(arg0);
-			return 0;
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int StartLocalAudio(IntPtr L)
-	{
-		try
-		{
-			int count = LuaDLL.lua_gettop(L);
-
-			if (count == 2)
-			{
-				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
-				string arg0 = ToLua.CheckString(L, 2);
-				obj.StartLocalAudio(arg0);
-				return 0;
-			}
-			else if (count == 3)
-			{
-				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
-				string arg0 = ToLua.CheckString(L, 2);
-				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
-				obj.StartLocalAudio(arg0, arg1);
-				return 0;
-			}
-			else
-			{
-				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.StartLocalAudio");
-			}
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int StopLocalAudio(IntPtr L)
-	{
-		try
-		{
-			ToLua.CheckArgsCount(L, 1);
-			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
-			obj.StopLocalAudio();
 			return 0;
 		}
 		catch (Exception e)
@@ -1372,58 +1710,6 @@ public class PluginSet_Core_PluginsManagerWrap
 			string arg0 = ToLua.CheckString(L, 2);
 			System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
 			obj.RemoveRemoteStateChangeCallbackWith(arg0, arg1);
-			return 0;
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int StartLocalAudioWith(IntPtr L)
-	{
-		try
-		{
-			int count = LuaDLL.lua_gettop(L);
-
-			if (count == 3)
-			{
-				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
-				string arg0 = ToLua.CheckString(L, 2);
-				string arg1 = ToLua.CheckString(L, 3);
-				obj.StartLocalAudioWith(arg0, arg1);
-				return 0;
-			}
-			else if (count == 4)
-			{
-				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
-				string arg0 = ToLua.CheckString(L, 2);
-				string arg1 = ToLua.CheckString(L, 3);
-				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
-				obj.StartLocalAudioWith(arg0, arg1, arg2);
-				return 0;
-			}
-			else
-			{
-				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.StartLocalAudioWith");
-			}
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int StopLocalAudioWith(IntPtr L)
-	{
-		try
-		{
-			ToLua.CheckArgsCount(L, 2);
-			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
-			string arg0 = ToLua.CheckString(L, 2);
-			obj.StopLocalAudioWith(arg0);
 			return 0;
 		}
 		catch (Exception e)
@@ -1884,6 +2170,45 @@ public class PluginSet_Core_PluginsManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SendConvSoundMessage(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
+				string o = obj.SendConvSoundMessage(arg0, arg1, arg2);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				string o = obj.SendConvSoundMessage(arg0, arg1, arg2, arg3);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.SendConvSoundMessage");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int SendConvCustomMessage(IntPtr L)
 	{
 		try
@@ -2260,6 +2585,47 @@ public class PluginSet_Core_PluginsManagerWrap
 			else
 			{
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.SendConvTextMessageWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SendConvSoundMessageWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				int arg3 = (int)LuaDLL.luaL_checknumber(L, 5);
+				string o = obj.SendConvSoundMessageWith(arg0, arg1, arg2, arg3);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 6)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				int arg3 = (int)LuaDLL.luaL_checknumber(L, 5);
+				System.Action<PluginSet.Core.Result> arg4 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 6);
+				string o = obj.SendConvSoundMessageWith(arg0, arg1, arg2, arg3, arg4);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.SendConvSoundMessageWith");
 			}
 		}
 		catch (Exception e)
@@ -2762,6 +3128,45 @@ public class PluginSet_Core_PluginsManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SendGroupSoundMessage(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
+				string o = obj.SendGroupSoundMessage(arg0, arg1, arg2);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				string o = obj.SendGroupSoundMessage(arg0, arg1, arg2, arg3);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.SendGroupSoundMessage");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int SendGroupCustomMessage(IntPtr L)
 	{
 		try
@@ -3245,6 +3650,47 @@ public class PluginSet_Core_PluginsManagerWrap
 			else
 			{
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.SendGroupTextMessageWith");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SendGroupSoundMessageWith(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				int arg3 = (int)LuaDLL.luaL_checknumber(L, 5);
+				string o = obj.SendGroupSoundMessageWith(arg0, arg1, arg2, arg3);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 6)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				int arg3 = (int)LuaDLL.luaL_checknumber(L, 5);
+				System.Action<PluginSet.Core.Result> arg4 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 6);
+				string o = obj.SendGroupSoundMessageWith(arg0, arg1, arg2, arg3, arg4);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.SendGroupSoundMessageWith");
 			}
 		}
 		catch (Exception e)
