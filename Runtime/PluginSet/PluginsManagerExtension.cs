@@ -103,15 +103,6 @@ namespace PluginSet.Lua
             pm.InitWithProductsWith(pluginName, products.ToDictTable<string, int>().ToDictionary());
         }
 
-        public static void CustomCallWith(this PluginsManager pm, string pluginName, string func, LuaFunction callback = null,
-            LuaTable param = null)
-        {
-            pm.CustomCallWith(pluginName, func, delegate(Result result)
-            {
-                TryCallbackWithResult(callback, result);
-            }, param?.ToDictTable<string, object>().ToDictionary());
-        }
-
         public static void ShareImage(this PluginsManager pm, string imagePath
             , LuaFunction success, LuaFunction fail = null
             , string title = null, string desc = null, string image = null)

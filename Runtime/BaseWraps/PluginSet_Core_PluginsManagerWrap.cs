@@ -4039,41 +4039,22 @@ public class PluginSet_Core_PluginsManagerWrap
 				obj.CustomCallWith(arg0, arg1);
 				return 0;
 			}
-			else if (count == 4 && TypeChecker.CheckTypes<System.Action<PluginSet.Core.Result>>(L, 4))
+			else if (count == 4)
 			{
 				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
 				string arg0 = ToLua.CheckString(L, 2);
 				string arg1 = ToLua.CheckString(L, 3);
-				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 4);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
 				obj.CustomCallWith(arg0, arg1, arg2);
 				return 0;
 			}
-			else if (count == 4 && TypeChecker.CheckTypes<LuaInterface.LuaFunction>(L, 4))
+			else if (count == 5)
 			{
 				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
 				string arg0 = ToLua.CheckString(L, 2);
 				string arg1 = ToLua.CheckString(L, 3);
-				LuaFunction arg2 = ToLua.ToLuaFunction(L, 4);
-				obj.CustomCallWith(arg0, arg1, arg2);
-				return 0;
-			}
-			else if (count == 5 && TypeChecker.CheckTypes<System.Action<PluginSet.Core.Result>, System.Collections.Generic.Dictionary<string,object>>(L, 4))
-			{
-				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
-				string arg0 = ToLua.CheckString(L, 2);
-				string arg1 = ToLua.CheckString(L, 3);
-				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.ToObject(L, 4);
-				System.Collections.Generic.Dictionary<string,object> arg3 = (System.Collections.Generic.Dictionary<string,object>)ToLua.ToObject(L, 5);
-				obj.CustomCallWith(arg0, arg1, arg2, arg3);
-				return 0;
-			}
-			else if (count == 5 && TypeChecker.CheckTypes<LuaInterface.LuaFunction, LuaInterface.LuaTable>(L, 4))
-			{
-				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
-				string arg0 = ToLua.CheckString(L, 2);
-				string arg1 = ToLua.CheckString(L, 3);
-				LuaFunction arg2 = ToLua.ToLuaFunction(L, 4);
-				LuaTable arg3 = ToLua.ToLuaTable(L, 5);
+				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				string arg3 = ToLua.CheckString(L, 5);
 				obj.CustomCallWith(arg0, arg1, arg2, arg3);
 				return 0;
 			}
