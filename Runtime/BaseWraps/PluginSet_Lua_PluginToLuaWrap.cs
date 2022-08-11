@@ -26,12 +26,36 @@ public class PluginSet_Lua_PluginToLuaWrap
 	{
 		try
 		{
-			ToLua.CheckArgsCount(L, 3);
-			PluginSet.Lua.PluginToLua obj = (PluginSet.Lua.PluginToLua)ToLua.CheckObject<PluginSet.Lua.PluginToLua>(L, 1);
-			string arg0 = ToLua.CheckString(L, 2);
-			LuaFunction arg1 = ToLua.CheckLuaFunction(L, 3);
-			obj.AddEventListener(arg0, arg1);
-			return 0;
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3 && TypeChecker.CheckTypes<LuaInterface.LuaFunction>(L, 3))
+			{
+				PluginSet.Lua.PluginToLua obj = (PluginSet.Lua.PluginToLua)ToLua.CheckObject<PluginSet.Lua.PluginToLua>(L, 1);
+				string arg0 = ToLua.CheckString(L, 2);
+				LuaFunction arg1 = ToLua.ToLuaFunction(L, 3);
+				obj.AddEventListener(arg0, arg1);
+				return 0;
+			}
+			else if (count == 3 && TypeChecker.CheckTypes<System.Action>(L, 3))
+			{
+				PluginSet.Lua.PluginToLua obj = (PluginSet.Lua.PluginToLua)ToLua.CheckObject<PluginSet.Lua.PluginToLua>(L, 1);
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Action arg1 = (System.Action)ToLua.ToObject(L, 3);
+				obj.AddEventListener(arg0, arg1);
+				return 0;
+			}
+			else if (count == 3 && TypeChecker.CheckTypes<System.Action<PluginSet.Core.PluginsEventContext>>(L, 3))
+			{
+				PluginSet.Lua.PluginToLua obj = (PluginSet.Lua.PluginToLua)ToLua.CheckObject<PluginSet.Lua.PluginToLua>(L, 1);
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Action<PluginSet.Core.PluginsEventContext> arg1 = (System.Action<PluginSet.Core.PluginsEventContext>)ToLua.ToObject(L, 3);
+				obj.AddEventListener(arg0, arg1);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Lua.PluginToLua.AddEventListener");
+			}
 		}
 		catch (Exception e)
 		{
@@ -44,12 +68,36 @@ public class PluginSet_Lua_PluginToLuaWrap
 	{
 		try
 		{
-			ToLua.CheckArgsCount(L, 3);
-			PluginSet.Lua.PluginToLua obj = (PluginSet.Lua.PluginToLua)ToLua.CheckObject<PluginSet.Lua.PluginToLua>(L, 1);
-			string arg0 = ToLua.CheckString(L, 2);
-			LuaFunction arg1 = ToLua.CheckLuaFunction(L, 3);
-			obj.RemoveEventListener(arg0, arg1);
-			return 0;
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 3 && TypeChecker.CheckTypes<LuaInterface.LuaFunction>(L, 3))
+			{
+				PluginSet.Lua.PluginToLua obj = (PluginSet.Lua.PluginToLua)ToLua.CheckObject<PluginSet.Lua.PluginToLua>(L, 1);
+				string arg0 = ToLua.CheckString(L, 2);
+				LuaFunction arg1 = ToLua.ToLuaFunction(L, 3);
+				obj.RemoveEventListener(arg0, arg1);
+				return 0;
+			}
+			else if (count == 3 && TypeChecker.CheckTypes<System.Action>(L, 3))
+			{
+				PluginSet.Lua.PluginToLua obj = (PluginSet.Lua.PluginToLua)ToLua.CheckObject<PluginSet.Lua.PluginToLua>(L, 1);
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Action arg1 = (System.Action)ToLua.ToObject(L, 3);
+				obj.RemoveEventListener(arg0, arg1);
+				return 0;
+			}
+			else if (count == 3 && TypeChecker.CheckTypes<System.Action<PluginSet.Core.PluginsEventContext>>(L, 3))
+			{
+				PluginSet.Lua.PluginToLua obj = (PluginSet.Lua.PluginToLua)ToLua.CheckObject<PluginSet.Lua.PluginToLua>(L, 1);
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Action<PluginSet.Core.PluginsEventContext> arg1 = (System.Action<PluginSet.Core.PluginsEventContext>)ToLua.ToObject(L, 3);
+				obj.RemoveEventListener(arg0, arg1);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Lua.PluginToLua.RemoveEventListener");
+			}
 		}
 		catch (Exception e)
 		{
