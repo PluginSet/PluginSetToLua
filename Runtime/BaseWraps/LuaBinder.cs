@@ -57,6 +57,7 @@ namespace PluginSet.Lua.LuaWrap
 			L.RegFunction("Action_UnityEngine_Object", System_Action_UnityEngine_Object);
 			L.RegFunction("Action_UnityEngine_Objects", System_Action_UnityEngine_Objects);
 			L.RegFunction("Action_bool_string", System_Action_bool_string);
+			L.RegFunction("Action_int", System_Action_int);
 			L.EndModule();
 			L.EndModule();
 			Debugger.Log("Register lua type cost time: {0}", Time.realtimeSinceStartup - t);
@@ -349,6 +350,33 @@ namespace PluginSet.Lua.LuaWrap
 				{
 					LuaTable self = ToLua.CheckLuaTable(L, 2);
 					Delegate arg1 = DelegateTraits<System.Action<bool,string>>.Create(func, self);
+					ToLua.Push(L, arg1);
+				}
+				return 1;
+			}
+			catch(Exception e)
+			{
+				return LuaDLL.toluaL_exception(L, e);
+			}
+		}
+
+		[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+		static int System_Action_int(IntPtr L)
+		{
+			try
+			{
+				int count = LuaDLL.lua_gettop(L);
+				LuaFunction func = ToLua.CheckLuaFunction(L, 1);
+
+				if (count == 1)
+				{
+					Delegate arg1 = DelegateTraits<System.Action<int>>.Create(func);
+					ToLua.Push(L, arg1);
+				}
+				else
+				{
+					LuaTable self = ToLua.CheckLuaTable(L, 2);
+					Delegate arg1 = DelegateTraits<System.Action<int>>.Create(func, self);
 					ToLua.Push(L, arg1);
 				}
 				return 1;
