@@ -39,6 +39,7 @@ namespace PluginSet.Lua.Editor
             typeof(Action<Result>),
             typeof(Action<bool>),
             typeof(Action<string>),
+            typeof(Action<int>),
             typeof(Func<bool>),
             typeof(Action<Object>),
             typeof(Action<Object[]>),
