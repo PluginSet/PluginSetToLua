@@ -51,6 +51,12 @@ namespace PluginSet.Lua.Editor
         [ToLuaGenerateClass]
         public static List<Type> customTypeList = new List<Type>
         {
+            // unity base
+            typeof(ScriptableObject),
+            typeof(MonoBehaviour),
+            typeof(Behaviour),
+            typeof(Component),
+            
             // lua
             typeof(LuaInjectionStation),
             typeof(InjectType),

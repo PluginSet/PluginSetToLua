@@ -20,6 +20,9 @@ namespace PluginSet.Lua.LuaWrap
 			PluginSet_Lua_CoroutineHelperWrapperWrap.Register(L);
 			PluginSet_Lua_ResourcesLuaWrapperWrap.Register(L);
 			PluginSet_Core_LoggerManagerWrap.Register(L);
+			L.BeginModule("UnityEngine");
+			UnityEngine_ScriptableObjectWrap.Register(L);
+			L.EndModule();
 			L.BeginModule("PluginSet");
 			L.BeginModule("Core");
 			PluginSet_Core_LanguageTypeWrap.Register(L);
