@@ -18,11 +18,11 @@ namespace PluginSet.Lua.LuaWrap
 			dict.Add(typeof(System.Action<PluginSet.Core.Result>), System_Action_PluginSet_Core_Result);
 			dict.Add(typeof(System.Action<bool>), System_Action_bool);
 			dict.Add(typeof(System.Action<string>), System_Action_string);
+			dict.Add(typeof(System.Action<int>), System_Action_int);
 			dict.Add(typeof(System.Func<bool>), System_Func_bool);
 			dict.Add(typeof(System.Action<UnityEngine.Object>), System_Action_UnityEngine_Object);
 			dict.Add(typeof(System.Action<UnityEngine.Object[]>), System_Action_UnityEngine_Objects);
 			dict.Add(typeof(System.Action<bool,string>), System_Action_bool_string);
-			dict.Add(typeof(System.Action<int>), System_Action_int);
 
 			DelegateTraits<System.Action>.Init(System_Action);
 			DelegateTraits<System.Action<PluginSet.Core.AsyncOperationHandle>>.Init(System_Action_PluginSet_Core_AsyncOperationHandle);
@@ -31,11 +31,11 @@ namespace PluginSet.Lua.LuaWrap
 			DelegateTraits<System.Action<PluginSet.Core.Result>>.Init(System_Action_PluginSet_Core_Result);
 			DelegateTraits<System.Action<bool>>.Init(System_Action_bool);
 			DelegateTraits<System.Action<string>>.Init(System_Action_string);
+			DelegateTraits<System.Action<int>>.Init(System_Action_int);
 			DelegateTraits<System.Func<bool>>.Init(System_Func_bool);
 			DelegateTraits<System.Action<UnityEngine.Object>>.Init(System_Action_UnityEngine_Object);
 			DelegateTraits<System.Action<UnityEngine.Object[]>>.Init(System_Action_UnityEngine_Objects);
 			DelegateTraits<System.Action<bool,string>>.Init(System_Action_bool_string);
-			DelegateTraits<System.Action<int>>.Init(System_Action_int);
 
 			TypeTraits<System.Action>.Init(Check_System_Action);
 			TypeTraits<System.Action<PluginSet.Core.AsyncOperationHandle>>.Init(Check_System_Action_PluginSet_Core_AsyncOperationHandle);
@@ -44,11 +44,11 @@ namespace PluginSet.Lua.LuaWrap
 			TypeTraits<System.Action<PluginSet.Core.Result>>.Init(Check_System_Action_PluginSet_Core_Result);
 			TypeTraits<System.Action<bool>>.Init(Check_System_Action_bool);
 			TypeTraits<System.Action<string>>.Init(Check_System_Action_string);
+			TypeTraits<System.Action<int>>.Init(Check_System_Action_int);
 			TypeTraits<System.Func<bool>>.Init(Check_System_Func_bool);
 			TypeTraits<System.Action<UnityEngine.Object>>.Init(Check_System_Action_UnityEngine_Object);
 			TypeTraits<System.Action<UnityEngine.Object[]>>.Init(Check_System_Action_UnityEngine_Objects);
 			TypeTraits<System.Action<bool,string>>.Init(Check_System_Action_bool_string);
-			TypeTraits<System.Action<int>>.Init(Check_System_Action_int);
 
 			StackTraits<System.Action>.Push = Push_System_Action;
 			StackTraits<System.Action<PluginSet.Core.AsyncOperationHandle>>.Push = Push_System_Action_PluginSet_Core_AsyncOperationHandle;
@@ -57,11 +57,11 @@ namespace PluginSet.Lua.LuaWrap
 			StackTraits<System.Action<PluginSet.Core.Result>>.Push = Push_System_Action_PluginSet_Core_Result;
 			StackTraits<System.Action<bool>>.Push = Push_System_Action_bool;
 			StackTraits<System.Action<string>>.Push = Push_System_Action_string;
+			StackTraits<System.Action<int>>.Push = Push_System_Action_int;
 			StackTraits<System.Func<bool>>.Push = Push_System_Func_bool;
 			StackTraits<System.Action<UnityEngine.Object>>.Push = Push_System_Action_UnityEngine_Object;
 			StackTraits<System.Action<UnityEngine.Object[]>>.Push = Push_System_Action_UnityEngine_Objects;
 			StackTraits<System.Action<bool,string>>.Push = Push_System_Action_bool_string;
-			StackTraits<System.Action<int>>.Push = Push_System_Action_int;
 		}
 		class System_Action_Event : LuaDelegate
 		{
@@ -460,6 +460,63 @@ namespace PluginSet.Lua.LuaWrap
 			ToLua.Push(L, o);
 		}
 
+		class System_Action_int_Event : LuaDelegate
+		{
+			public System_Action_int_Event(LuaFunction func) : base(func) { }
+			public System_Action_int_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+			public void Call(int param0)
+			{
+				func.BeginPCall();
+				func.Push(param0);
+				func.PCall();
+				func.EndPCall();
+			}
+
+			public void CallWithSelf(int param0)
+			{
+				func.BeginPCall();
+				func.Push(self);
+				func.Push(param0);
+				func.PCall();
+				func.EndPCall();
+			}
+		}
+
+		public System.Action<int> System_Action_int(LuaFunction func, LuaTable self, bool flag)
+		{
+			if (func == null)
+			{
+				System.Action<int> fn = delegate(int param0) { };
+				return fn;
+			}
+
+			if(!flag)
+			{
+				System_Action_int_Event target = new System_Action_int_Event(func);
+				System.Action<int> d = target.Call;
+				target.method = d.Method;
+				return d;
+			}
+			else
+			{
+				System_Action_int_Event target = new System_Action_int_Event(func, self);
+				System.Action<int> d = target.CallWithSelf;
+				target.method = d.Method;
+				return d;
+			}
+		}
+
+		bool Check_System_Action_int(IntPtr L, int pos)
+		{
+			return TypeChecker.CheckDelegateType(typeof(System.Action<int>), L, pos);
+		}
+
+		void Push_System_Action_int(IntPtr L, System.Action<int> o)
+		{
+			ToLua.Push(L, o);
+		}
+
 		class System_Func_bool_Event : LuaDelegate
 		{
 			public System_Func_bool_Event(LuaFunction func) : base(func) { }
@@ -688,63 +745,6 @@ namespace PluginSet.Lua.LuaWrap
 		}
 
 		void Push_System_Action_bool_string(IntPtr L, System.Action<bool,string> o)
-		{
-			ToLua.Push(L, o);
-		}
-
-		class System_Action_int_Event : LuaDelegate
-		{
-			public System_Action_int_Event(LuaFunction func) : base(func) { }
-			public System_Action_int_Event(LuaFunction func, LuaTable self) : base(func, self) { }
-
-			public void Call(int param0)
-			{
-				func.BeginPCall();
-				func.Push(param0);
-				func.PCall();
-				func.EndPCall();
-			}
-
-			public void CallWithSelf(int param0)
-			{
-				func.BeginPCall();
-				func.Push(self);
-				func.Push(param0);
-				func.PCall();
-				func.EndPCall();
-			}
-		}
-
-		public System.Action<int> System_Action_int(LuaFunction func, LuaTable self, bool flag)
-		{
-			if (func == null)
-			{
-				System.Action<int> fn = delegate(int param0) { };
-				return fn;
-			}
-
-			if(!flag)
-			{
-				System_Action_int_Event target = new System_Action_int_Event(func);
-				System.Action<int> d = target.Call;
-				target.method = d.Method;
-				return d;
-			}
-			else
-			{
-				System_Action_int_Event target = new System_Action_int_Event(func, self);
-				System.Action<int> d = target.CallWithSelf;
-				target.method = d.Method;
-				return d;
-			}
-		}
-
-		bool Check_System_Action_int(IntPtr L, int pos)
-		{
-			return TypeChecker.CheckDelegateType(typeof(System.Action<int>), L, pos);
-		}
-
-		void Push_System_Action_int(IntPtr L, System.Action<int> o)
 		{
 			ToLua.Push(L, o);
 		}
