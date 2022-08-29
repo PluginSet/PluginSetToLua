@@ -2225,8 +2225,19 @@ public class PluginSet_Core_PluginsManagerWrap
 				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
 				string arg0 = ToLua.CheckString(L, 2);
 				string arg1 = ToLua.CheckString(L, 3);
-				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				string arg2 = ToLua.CheckString(L, 4);
 				string o = obj.SendConvTextMessage(arg0, arg1, arg2);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				string o = obj.SendConvTextMessage(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushstring(L, o);
 				return 1;
 			}
@@ -2264,8 +2275,20 @@ public class PluginSet_Core_PluginsManagerWrap
 				string arg0 = ToLua.CheckString(L, 2);
 				string arg1 = ToLua.CheckString(L, 3);
 				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
-				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				string arg3 = ToLua.CheckString(L, 5);
 				string o = obj.SendConvSoundMessage(arg0, arg1, arg2, arg3);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 6)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
+				string arg3 = ToLua.CheckString(L, 5);
+				System.Action<PluginSet.Core.Result> arg4 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 6);
+				string o = obj.SendConvSoundMessage(arg0, arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushstring(L, o);
 				return 1;
 			}
@@ -2303,8 +2326,20 @@ public class PluginSet_Core_PluginsManagerWrap
 				string arg0 = ToLua.CheckString(L, 2);
 				string arg1 = ToLua.CheckString(L, 3);
 				string arg2 = ToLua.CheckString(L, 4);
-				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				string arg3 = ToLua.CheckString(L, 5);
 				string o = obj.SendConvCustomMessage(arg0, arg1, arg2, arg3);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 6)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				string arg3 = ToLua.CheckString(L, 5);
+				System.Action<PluginSet.Core.Result> arg4 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 6);
+				string o = obj.SendConvCustomMessage(arg0, arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushstring(L, o);
 				return 1;
 			}
@@ -2649,8 +2684,20 @@ public class PluginSet_Core_PluginsManagerWrap
 				string arg0 = ToLua.CheckString(L, 2);
 				string arg1 = ToLua.CheckString(L, 3);
 				string arg2 = ToLua.CheckString(L, 4);
-				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				string arg3 = ToLua.CheckString(L, 5);
 				string o = obj.SendConvTextMessageWith(arg0, arg1, arg2, arg3);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 6)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				string arg3 = ToLua.CheckString(L, 5);
+				System.Action<PluginSet.Core.Result> arg4 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 6);
+				string o = obj.SendConvTextMessageWith(arg0, arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushstring(L, o);
 				return 1;
 			}
@@ -2690,8 +2737,21 @@ public class PluginSet_Core_PluginsManagerWrap
 				string arg1 = ToLua.CheckString(L, 3);
 				string arg2 = ToLua.CheckString(L, 4);
 				int arg3 = (int)LuaDLL.luaL_checknumber(L, 5);
-				System.Action<PluginSet.Core.Result> arg4 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 6);
+				string arg4 = ToLua.CheckString(L, 6);
 				string o = obj.SendConvSoundMessageWith(arg0, arg1, arg2, arg3, arg4);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 7)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				int arg3 = (int)LuaDLL.luaL_checknumber(L, 5);
+				string arg4 = ToLua.CheckString(L, 6);
+				System.Action<PluginSet.Core.Result> arg5 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 7);
+				string o = obj.SendConvSoundMessageWith(arg0, arg1, arg2, arg3, arg4, arg5);
 				LuaDLL.lua_pushstring(L, o);
 				return 1;
 			}
@@ -2731,8 +2791,21 @@ public class PluginSet_Core_PluginsManagerWrap
 				string arg1 = ToLua.CheckString(L, 3);
 				string arg2 = ToLua.CheckString(L, 4);
 				string arg3 = ToLua.CheckString(L, 5);
-				System.Action<PluginSet.Core.Result> arg4 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 6);
+				string arg4 = ToLua.CheckString(L, 6);
 				string o = obj.SendConvCustomMessageWith(arg0, arg1, arg2, arg3, arg4);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 7)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				string arg3 = ToLua.CheckString(L, 5);
+				string arg4 = ToLua.CheckString(L, 6);
+				System.Action<PluginSet.Core.Result> arg5 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 7);
+				string o = obj.SendConvCustomMessageWith(arg0, arg1, arg2, arg3, arg4, arg5);
 				LuaDLL.lua_pushstring(L, o);
 				return 1;
 			}
@@ -3183,8 +3256,19 @@ public class PluginSet_Core_PluginsManagerWrap
 				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
 				string arg0 = ToLua.CheckString(L, 2);
 				string arg1 = ToLua.CheckString(L, 3);
-				System.Action<PluginSet.Core.Result> arg2 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 4);
+				string arg2 = ToLua.CheckString(L, 4);
 				string o = obj.SendGroupTextMessage(arg0, arg1, arg2);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				string o = obj.SendGroupTextMessage(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushstring(L, o);
 				return 1;
 			}
@@ -3222,8 +3306,20 @@ public class PluginSet_Core_PluginsManagerWrap
 				string arg0 = ToLua.CheckString(L, 2);
 				string arg1 = ToLua.CheckString(L, 3);
 				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
-				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				string arg3 = ToLua.CheckString(L, 5);
 				string o = obj.SendGroupSoundMessage(arg0, arg1, arg2, arg3);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 6)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
+				string arg3 = ToLua.CheckString(L, 5);
+				System.Action<PluginSet.Core.Result> arg4 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 6);
+				string o = obj.SendGroupSoundMessage(arg0, arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushstring(L, o);
 				return 1;
 			}
@@ -3261,8 +3357,20 @@ public class PluginSet_Core_PluginsManagerWrap
 				string arg0 = ToLua.CheckString(L, 2);
 				string arg1 = ToLua.CheckString(L, 3);
 				string arg2 = ToLua.CheckString(L, 4);
-				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				string arg3 = ToLua.CheckString(L, 5);
 				string o = obj.SendGroupCustomMessage(arg0, arg1, arg2, arg3);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 6)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				string arg3 = ToLua.CheckString(L, 5);
+				System.Action<PluginSet.Core.Result> arg4 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 6);
+				string o = obj.SendGroupCustomMessage(arg0, arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushstring(L, o);
 				return 1;
 			}
@@ -3714,8 +3822,20 @@ public class PluginSet_Core_PluginsManagerWrap
 				string arg0 = ToLua.CheckString(L, 2);
 				string arg1 = ToLua.CheckString(L, 3);
 				string arg2 = ToLua.CheckString(L, 4);
-				System.Action<PluginSet.Core.Result> arg3 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 5);
+				string arg3 = ToLua.CheckString(L, 5);
 				string o = obj.SendGroupTextMessageWith(arg0, arg1, arg2, arg3);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 6)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				string arg3 = ToLua.CheckString(L, 5);
+				System.Action<PluginSet.Core.Result> arg4 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 6);
+				string o = obj.SendGroupTextMessageWith(arg0, arg1, arg2, arg3, arg4);
 				LuaDLL.lua_pushstring(L, o);
 				return 1;
 			}
@@ -3755,8 +3875,21 @@ public class PluginSet_Core_PluginsManagerWrap
 				string arg1 = ToLua.CheckString(L, 3);
 				string arg2 = ToLua.CheckString(L, 4);
 				int arg3 = (int)LuaDLL.luaL_checknumber(L, 5);
-				System.Action<PluginSet.Core.Result> arg4 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 6);
+				string arg4 = ToLua.CheckString(L, 6);
 				string o = obj.SendGroupSoundMessageWith(arg0, arg1, arg2, arg3, arg4);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 7)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				int arg3 = (int)LuaDLL.luaL_checknumber(L, 5);
+				string arg4 = ToLua.CheckString(L, 6);
+				System.Action<PluginSet.Core.Result> arg5 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 7);
+				string o = obj.SendGroupSoundMessageWith(arg0, arg1, arg2, arg3, arg4, arg5);
 				LuaDLL.lua_pushstring(L, o);
 				return 1;
 			}
@@ -3796,8 +3929,21 @@ public class PluginSet_Core_PluginsManagerWrap
 				string arg1 = ToLua.CheckString(L, 3);
 				string arg2 = ToLua.CheckString(L, 4);
 				string arg3 = ToLua.CheckString(L, 5);
-				System.Action<PluginSet.Core.Result> arg4 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 6);
+				string arg4 = ToLua.CheckString(L, 6);
 				string o = obj.SendGroupCustomMessageWith(arg0, arg1, arg2, arg3, arg4);
+				LuaDLL.lua_pushstring(L, o);
+				return 1;
+			}
+			else if (count == 7)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				string arg3 = ToLua.CheckString(L, 5);
+				string arg4 = ToLua.CheckString(L, 6);
+				System.Action<PluginSet.Core.Result> arg5 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 7);
+				string o = obj.SendGroupCustomMessageWith(arg0, arg1, arg2, arg3, arg4, arg5);
 				LuaDLL.lua_pushstring(L, o);
 				return 1;
 			}
