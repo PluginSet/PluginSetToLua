@@ -213,6 +213,10 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("InitWithProductsWith", InitWithProductsWith);
 		L.RegFunction("PaymentComplete", PaymentComplete);
 		L.RegFunction("PaymentCompleteWith", PaymentCompleteWith);
+		L.RegFunction("AddOnPaymentCompleted", AddOnPaymentCompleted);
+		L.RegFunction("RemoveOnPaymentCompleted", RemoveOnPaymentCompleted);
+		L.RegFunction("AddOnPaymentCompletedWith", AddOnPaymentCompletedWith);
+		L.RegFunction("RemoveOnPaymentCompletedWith", RemoveOnPaymentCompletedWith);
 		L.RegFunction("OnPrivacyAuthorization", OnPrivacyAuthorization);
 		L.RegFunction("GetUserProfileList", GetUserProfileList);
 		L.RegFunction("GetUserProfileListWith", GetUserProfileListWith);
@@ -6162,6 +6166,76 @@ public class PluginSet_Core_PluginsManagerWrap
 			string arg0 = ToLua.CheckString(L, 2);
 			string arg1 = ToLua.CheckString(L, 3);
 			obj.PaymentCompleteWith(arg0, arg1);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int AddOnPaymentCompleted(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			System.Action<string> arg0 = (System.Action<string>)ToLua.CheckDelegate<System.Action<string>>(L, 2);
+			obj.AddOnPaymentCompleted(arg0);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int RemoveOnPaymentCompleted(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			System.Action<string> arg0 = (System.Action<string>)ToLua.CheckDelegate<System.Action<string>>(L, 2);
+			obj.RemoveOnPaymentCompleted(arg0);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int AddOnPaymentCompletedWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			System.Action<string> arg1 = (System.Action<string>)ToLua.CheckDelegate<System.Action<string>>(L, 3);
+			obj.AddOnPaymentCompletedWith(arg0, arg1);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int RemoveOnPaymentCompletedWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			System.Action<string> arg1 = (System.Action<string>)ToLua.CheckDelegate<System.Action<string>>(L, 3);
+			obj.RemoveOnPaymentCompletedWith(arg0, arg1);
 			return 0;
 		}
 		catch (Exception e)
