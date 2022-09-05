@@ -205,6 +205,7 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("MomentTryCloseMomentConfirmWindowWith", MomentTryCloseMomentConfirmWindowWith);
 		L.RegFunction("MomentClose", MomentClose);
 		L.RegFunction("MomentCloseWith", MomentCloseWith);
+		L.RegFunction("IsEnablePayWith", IsEnablePayWith);
 		L.RegFunction("GetPayTypes", GetPayTypes);
 		L.RegFunction("GetValidPayTypes", GetValidPayTypes);
 		L.RegFunction("Pay", Pay);
@@ -5909,6 +5910,24 @@ public class PluginSet_Core_PluginsManagerWrap
 			string arg0 = ToLua.CheckString(L, 2);
 			obj.MomentCloseWith(arg0);
 			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int IsEnablePayWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			bool o = obj.IsEnablePayWith(arg0);
+			LuaDLL.lua_pushboolean(L, o);
+			return 1;
 		}
 		catch (Exception e)
 		{
