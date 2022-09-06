@@ -54,6 +54,7 @@ public class PluginSet_Core_LanguageTypeWrap
 		L.RegVar("ChineseTraditional", get_ChineseTraditional, null);
 		L.RegVar("Unknown", get_Unknown, null);
 		L.RegVar("Uyghur", get_Uyghur, null);
+		L.RegVar("Kazakh", get_Kazakh, null);
 		L.RegFunction("IntToEnum", IntToEnum);
 		L.EndEnum();
 		TypeTraits<PluginSet.Core.LanguageType>.Check = CheckType;
@@ -368,6 +369,13 @@ public class PluginSet_Core_LanguageTypeWrap
 	static int get_Uyghur(IntPtr L)
 	{
 		ToLua.Push(L, PluginSet.Core.LanguageType.Uyghur);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Kazakh(IntPtr L)
+	{
+		ToLua.Push(L, PluginSet.Core.LanguageType.Kazakh);
 		return 1;
 	}
 
