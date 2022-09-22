@@ -180,6 +180,7 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("HandleAgreeRequestWith", HandleAgreeRequestWith);
 		L.RegFunction("HandleAgreeAndAddRequestWith", HandleAgreeAndAddRequestWith);
 		L.RegFunction("HandleRejectRequestWith", HandleRejectRequestWith);
+		L.RegFunction("GetLanguageFlag", GetLanguageFlag);
 		L.RegFunction("SetCurrentLanguage", SetCurrentLanguage);
 		L.RegFunction("OnLanguageChanged", OnLanguageChanged);
 		L.RegFunction("GetLoginTypes", GetLoginTypes);
@@ -283,6 +284,7 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegVar("ChannelList", get_ChannelList, null);
 		L.RegVar("HasExitDialog", get_HasExitDialog, null);
 		L.RegVar("CurrentLanguage", get_CurrentLanguage, null);
+		L.RegVar("ValidLanguages", get_ValidLanguages, null);
 		L.RegVar("IsEnableLogin", get_IsEnableLogin, null);
 		L.RegVar("IsLoggedIn", get_IsLoggedIn, null);
 		L.RegVar("IsEnableShowMoment", get_IsEnableShowMoment, null);
@@ -5412,6 +5414,24 @@ public class PluginSet_Core_PluginsManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetLanguageFlag(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			PluginSet.Core.LanguageType arg0 = (PluginSet.Core.LanguageType)ToLua.CheckObject(L, 2, typeof(PluginSet.Core.LanguageType));
+			string o = obj.GetLanguageFlag(arg0);
+			LuaDLL.lua_pushstring(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int SetCurrentLanguage(IntPtr L)
 	{
 		try
@@ -9612,6 +9632,25 @@ public class PluginSet_Core_PluginsManagerWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index CurrentLanguage on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_ValidLanguages(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)o;
+			PluginSet.Core.LanguageType[] ret = obj.ValidLanguages;
+			ToLua.Push(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index ValidLanguages on a nil value");
 		}
 	}
 

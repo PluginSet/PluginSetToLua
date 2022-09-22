@@ -18,6 +18,7 @@ public class PluginSet_Core_ResultWrap
 		L.RegVar("Error", get_Error, set_Error);
 		L.RegVar("PluginName", get_PluginName, set_PluginName);
 		L.RegVar("Data", get_Data, set_Data);
+		L.RegVar("DataObject", get_DataObject, set_DataObject);
 		L.EndClass();
 	}
 
@@ -125,6 +126,25 @@ public class PluginSet_Core_ResultWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_DataObject(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			PluginSet.Core.Result obj = (PluginSet.Core.Result)o;
+			object ret = obj.DataObject;
+			ToLua.Push(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index DataObject on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int set_Success(IntPtr L)
 	{
 		object o = null;
@@ -221,6 +241,26 @@ public class PluginSet_Core_ResultWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index Data on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_DataObject(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			PluginSet.Core.Result obj = (PluginSet.Core.Result)o;
+			object arg0 = ToLua.ToVarObject(L, 2);
+			obj.DataObject = arg0;
+			ToLua.SetBack(L, 1, obj);
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index DataObject on a nil value");
 		}
 	}
 }
