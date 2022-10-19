@@ -188,6 +188,7 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("GetLoginTypes", GetLoginTypes);
 		L.RegFunction("GetValidLoginTypes", GetValidLoginTypes);
 		L.RegFunction("LoginEnable", LoginEnable);
+		L.RegFunction("IsEnableLoginWith", IsEnableLoginWith);
 		L.RegFunction("Login", Login);
 		L.RegFunction("LoginWith", LoginWith);
 		L.RegFunction("Logout", Logout);
@@ -230,38 +231,47 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("OnUserRealName", OnUserRealName);
 		L.RegFunction("GetShareImageTypes", GetShareImageTypes);
 		L.RegFunction("GetValidShareImageTypes", GetValidShareImageTypes);
+		L.RegFunction("IsEnableShareImageWith", IsEnableShareImageWith);
 		L.RegFunction("ShareImage", ShareImage);
 		L.RegFunction("ShareImageWith", ShareImageWith);
 		L.RegFunction("GetShareImageUrlTypes", GetShareImageUrlTypes);
 		L.RegFunction("GetValidShareImageUrlTypes", GetValidShareImageUrlTypes);
+		L.RegFunction("IsEnableShareImageUrlWith", IsEnableShareImageUrlWith);
 		L.RegFunction("ShareImageUrl", ShareImageUrl);
 		L.RegFunction("ShareImageUrlWith", ShareImageUrlWith);
 		L.RegFunction("GetShareMiniProgramTypes", GetShareMiniProgramTypes);
 		L.RegFunction("GetValidShareMiniProgramTypes", GetValidShareMiniProgramTypes);
+		L.RegFunction("IsEnableShareMiniProgramWith", IsEnableShareMiniProgramWith);
 		L.RegFunction("ShareMiniProgram", ShareMiniProgram);
 		L.RegFunction("ShareMiniProgramWith", ShareMiniProgramWith);
 		L.RegFunction("GetShareMusicTypes", GetShareMusicTypes);
 		L.RegFunction("GetValidShareMusicTypes", GetValidShareMusicTypes);
+		L.RegFunction("IsEnableShareMusicWith", IsEnableShareMusicWith);
 		L.RegFunction("ShareMusic", ShareMusic);
 		L.RegFunction("ShareMusicWith", ShareMusicWith);
 		L.RegFunction("GetShareMusicUrlTypes", GetShareMusicUrlTypes);
 		L.RegFunction("GetValidShareMusicUrlTypes", GetValidShareMusicUrlTypes);
+		L.RegFunction("IsEnableShareMusicUrlWith", IsEnableShareMusicUrlWith);
 		L.RegFunction("ShareMusicUrl", ShareMusicUrl);
 		L.RegFunction("ShareMusicUrlWith", ShareMusicUrlWith);
 		L.RegFunction("GetShareTextTypes", GetShareTextTypes);
 		L.RegFunction("GetValidShareTextTypes", GetValidShareTextTypes);
+		L.RegFunction("IsEnableShareTextWith", IsEnableShareTextWith);
 		L.RegFunction("ShareText", ShareText);
 		L.RegFunction("ShareTextWith", ShareTextWith);
 		L.RegFunction("GetShareVideoTypes", GetShareVideoTypes);
 		L.RegFunction("GetValidShareVideoTypes", GetValidShareVideoTypes);
+		L.RegFunction("IsEnableShareVideoWith", IsEnableShareVideoWith);
 		L.RegFunction("ShareVideo", ShareVideo);
 		L.RegFunction("ShareVideoWith", ShareVideoWith);
 		L.RegFunction("GetShareVideoUrlTypes", GetShareVideoUrlTypes);
 		L.RegFunction("GetValidShareVideoUrlTypes", GetValidShareVideoUrlTypes);
+		L.RegFunction("IsEnableShareVideoUrlWith", IsEnableShareVideoUrlWith);
 		L.RegFunction("ShareVideoUrl", ShareVideoUrl);
 		L.RegFunction("ShareVideoUrlWith", ShareVideoUrlWith);
 		L.RegFunction("GetShareWebPageTypes", GetShareWebPageTypes);
 		L.RegFunction("GetValidShareWebPageTypes", GetValidShareWebPageTypes);
+		L.RegFunction("IsEnableShareWebPageWith", IsEnableShareWebPageWith);
 		L.RegFunction("ShareWebPage", ShareWebPage);
 		L.RegFunction("ShareWebPageWith", ShareWebPageWith);
 		L.RegFunction("Review", Review);
@@ -5629,6 +5639,24 @@ public class PluginSet_Core_PluginsManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int IsEnableLoginWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			bool o = obj.IsEnableLoginWith(arg0);
+			LuaDLL.lua_pushboolean(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int Login(IntPtr L)
 	{
 		try
@@ -6597,6 +6625,24 @@ public class PluginSet_Core_PluginsManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int IsEnableShareImageWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			bool o = obj.IsEnableShareImageWith(arg0);
+			LuaDLL.lua_pushboolean(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int ShareImage(IntPtr L)
 	{
 		try
@@ -6892,6 +6938,24 @@ public class PluginSet_Core_PluginsManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int IsEnableShareImageUrlWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			bool o = obj.IsEnableShareImageUrlWith(arg0);
+			LuaDLL.lua_pushboolean(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int ShareImageUrl(IntPtr L)
 	{
 		try
@@ -7178,6 +7242,24 @@ public class PluginSet_Core_PluginsManagerWrap
 			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
 			string[] o = obj.GetValidShareMiniProgramTypes();
 			ToLua.Push(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int IsEnableShareMiniProgramWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			bool o = obj.IsEnableShareMiniProgramWith(arg0);
+			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
 		catch (Exception e)
@@ -7526,6 +7608,24 @@ public class PluginSet_Core_PluginsManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int IsEnableShareMusicWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			bool o = obj.IsEnableShareMusicWith(arg0);
+			LuaDLL.lua_pushboolean(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int ShareMusic(IntPtr L)
 	{
 		try
@@ -7812,6 +7912,24 @@ public class PluginSet_Core_PluginsManagerWrap
 			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
 			string[] o = obj.GetValidShareMusicUrlTypes();
 			ToLua.Push(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int IsEnableShareMusicUrlWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			bool o = obj.IsEnableShareMusicUrlWith(arg0);
+			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
 		catch (Exception e)
@@ -8116,6 +8234,24 @@ public class PluginSet_Core_PluginsManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int IsEnableShareTextWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			bool o = obj.IsEnableShareTextWith(arg0);
+			LuaDLL.lua_pushboolean(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int ShareText(IntPtr L)
 	{
 		try
@@ -8352,6 +8488,24 @@ public class PluginSet_Core_PluginsManagerWrap
 			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
 			string[] o = obj.GetValidShareVideoTypes();
 			ToLua.Push(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int IsEnableShareVideoWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			bool o = obj.IsEnableShareVideoWith(arg0);
+			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
 		catch (Exception e)
@@ -8710,6 +8864,24 @@ public class PluginSet_Core_PluginsManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int IsEnableShareVideoUrlWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			bool o = obj.IsEnableShareVideoUrlWith(arg0);
+			LuaDLL.lua_pushboolean(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int ShareVideoUrl(IntPtr L)
 	{
 		try
@@ -9050,6 +9222,24 @@ public class PluginSet_Core_PluginsManagerWrap
 			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
 			string[] o = obj.GetValidShareWebPageTypes();
 			ToLua.Push(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int IsEnableShareWebPageWith(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			bool o = obj.IsEnableShareWebPageWith(arg0);
+			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
 		catch (Exception e)

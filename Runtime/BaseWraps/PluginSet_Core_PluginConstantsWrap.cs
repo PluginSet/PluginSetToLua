@@ -86,6 +86,7 @@ public class PluginSet_Core_PluginConstantsWrap
 		L.RegVar("FRIEND_DELETE_FRIEND", get_FRIEND_DELETE_FRIEND, null);
 		L.RegVar("FRIEND_UPDATE_PROFILE", get_FRIEND_UPDATE_PROFILE, null);
 		L.RegVar("FRIEND_ADD_REQUEST", get_FRIEND_ADD_REQUEST, null);
+		L.RegVar("FRIEND_REQUEST_DELETE", get_FRIEND_REQUEST_DELETE, null);
 		L.EndStaticLibs();
 	}
 
@@ -1075,6 +1076,20 @@ public class PluginSet_Core_PluginConstantsWrap
 		try
 		{
 			LuaDLL.lua_pushstring(L, PluginSet.Core.PluginConstants.FRIEND_ADD_REQUEST);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_FRIEND_REQUEST_DELETE(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, PluginSet.Core.PluginConstants.FRIEND_REQUEST_DELETE);
 			return 1;
 		}
 		catch (Exception e)
