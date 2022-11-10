@@ -14,8 +14,10 @@ public class PluginSet_Core_DevicesWrap
 		L.RegFunction("GetAppData", GetAppData);
 		L.RegFunction("Vibrate", Vibrate);
 		L.RegFunction("GetSafeArea", GetSafeArea);
+		L.RegFunction("CheckAdvertisingTrackingPermission", CheckAdvertisingTrackingPermission);
 		L.RegFunction("IsAdvertisingTrackingGranted", IsAdvertisingTrackingGranted);
 		L.RegFunction("RequestAdvertisingTracking", RequestAdvertisingTracking);
+		L.RegFunction("CheckMicrophonePermission", CheckMicrophonePermission);
 		L.RegFunction("IsMicrophoneEnable", IsMicrophoneEnable);
 		L.RegFunction("RequestMicrophoneAuth", RequestMicrophoneAuth);
 		L.RegFunction("GetDeviceUniqueId", GetDeviceUniqueId);
@@ -94,6 +96,22 @@ public class PluginSet_Core_DevicesWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int CheckAdvertisingTrackingPermission(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 0);
+			PluginSet.Core.DevicePermission o = PluginSet.Core.Devices.CheckAdvertisingTrackingPermission();
+			ToLua.Push(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int IsAdvertisingTrackingGranted(IntPtr L)
 	{
 		try
@@ -117,6 +135,22 @@ public class PluginSet_Core_DevicesWrap
 			ToLua.CheckArgsCount(L, 0);
 			bool o = PluginSet.Core.Devices.RequestAdvertisingTracking();
 			LuaDLL.lua_pushboolean(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int CheckMicrophonePermission(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 0);
+			PluginSet.Core.DevicePermission o = PluginSet.Core.Devices.CheckMicrophonePermission();
+			ToLua.Push(L, o);
 			return 1;
 		}
 		catch (Exception e)

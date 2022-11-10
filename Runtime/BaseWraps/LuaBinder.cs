@@ -37,6 +37,7 @@ namespace PluginSet.Lua.LuaWrap
 			PluginSet_Core_PluginsManagerWrap.Register(L);
 			PluginSet_Core_PluginUtilWrap.Register(L);
 			PluginSet_Core_DevicesWrap.Register(L);
+			PluginSet_Core_DevicePermissionWrap.Register(L);
 			PluginSet_Core_LoggerWrap.Register(L);
 			PluginSet_Core_ResultWrap.Register(L);
 			PluginSet_Core_ReportErrorWrap.Register(L);

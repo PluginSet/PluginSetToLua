@@ -85,6 +85,7 @@ namespace PluginSet.Lua.Editor
             typeof(ClientProfiler),
 
             typeof(Devices),
+            typeof(DevicePermission),
             typeof(Logger),
             typeof(LoggerManager),
 
