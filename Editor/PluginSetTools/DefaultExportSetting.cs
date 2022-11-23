@@ -53,9 +53,6 @@ namespace PluginSet.Lua.Editor
         {
             // unity base
             typeof(ScriptableObject),
-            typeof(MonoBehaviour),
-            typeof(Behaviour),
-            typeof(Component),
             
             // lua
             typeof(LuaInjectionStation),
