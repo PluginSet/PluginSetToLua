@@ -27,6 +27,9 @@ public class PluginSet_Core_DevicesWrap
 		L.RegFunction("IsBatteryCharging", IsBatteryCharging);
 		L.RegFunction("GetVersionCode", GetVersionCode);
 		L.RegFunction("LogI", LogI);
+		L.RegFunction("EnableOpenSettings", EnableOpenSettings);
+		L.RegFunction("OpenSettings", OpenSettings);
+		L.RegFunction("OSAvailable", OSAvailable);
 		L.EndStaticLibs();
 	}
 
@@ -296,6 +299,54 @@ public class PluginSet_Core_DevicesWrap
 			string arg0 = ToLua.CheckString(L, 1);
 			PluginSet.Core.Devices.LogI(arg0);
 			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int EnableOpenSettings(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 0);
+			bool o = PluginSet.Core.Devices.EnableOpenSettings();
+			LuaDLL.lua_pushboolean(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int OpenSettings(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 0);
+			PluginSet.Core.Devices.OpenSettings();
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int OSAvailable(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			int arg0 = (int)LuaDLL.luaL_checknumber(L, 1);
+			bool o = PluginSet.Core.Devices.OSAvailable(arg0);
+			LuaDLL.lua_pushboolean(L, o);
+			return 1;
 		}
 		catch (Exception e)
 		{
