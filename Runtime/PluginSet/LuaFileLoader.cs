@@ -42,6 +42,9 @@ namespace PluginSet.Lua
                 yield break;
             }
             
+            /**
+             * 某些设备启动后，虽然系统为64位，但进程可能是32位，该情况下IntPtr.Size为4，只能运行32位luajit脚本
+             */
             if (Environment.Is64BitProcess)
             {
                 var name = luaBundleName + "64";
