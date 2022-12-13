@@ -28,6 +28,8 @@ namespace PluginSet.Lua
             UnloadLuaBundle();
 
             Debug.Log(">>>>>>>>>>>>> PluginToLua Environment.Is64BitOperatingSystem = " + Environment.Is64BitOperatingSystem);
+            Debug.Log(">>>>>>>>>>>>> PluginToLua Environment.Is64BitProcess = " + Environment.Is64BitProcess);
+            Debug.Log(">>>>>>>>>>>>> PluginToLua Environment.IntSize = " + IntPtr.Size);
 
             if (string.IsNullOrEmpty(luaBundleName))
                 yield break;
@@ -40,7 +42,7 @@ namespace PluginSet.Lua
                 yield break;
             }
             
-            if (Environment.Is64BitOperatingSystem)
+            if (Environment.Is64BitProcess)
             {
                 var name = luaBundleName + "64";
                 if (manager.ExistsBundle(name))
