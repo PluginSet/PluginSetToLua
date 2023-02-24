@@ -285,6 +285,7 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("__eq", op_Equality);
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.RegVar("GlobalData", get_GlobalData, null);
+		L.RegVar("Started", get_Started, null);
 		L.RegVar("Instance", get_Instance, null);
 		L.RegVar("Name", get_Name, null);
 		L.RegVar("IsStarted", get_IsStarted, null);
@@ -302,6 +303,7 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegVar("IsEnableShowMoment", get_IsEnableShowMoment, null);
 		L.RegVar("IsReadyToShowMoment", get_IsReadyToShowMoment, null);
 		L.RegVar("IsEnablePayment", get_IsEnablePayment, null);
+		L.RegVar("IsPrivacyAuthorized", get_IsPrivacyAuthorized, null);
 		L.RegVar("IsEnableVerifyRealName", get_IsEnableVerifyRealName, null);
 		L.RegVar("AllowPrivateTraffic", get_AllowPrivateTraffic, null);
 		L.RegVar("ShowTosOnLoginScreen", get_ShowTosOnLoginScreen, null);
@@ -9732,6 +9734,20 @@ public class PluginSet_Core_PluginsManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Started(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushboolean(L, PluginSet.Core.PluginsManager.Started);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_Instance(IntPtr L)
 	{
 		try
@@ -10046,6 +10062,25 @@ public class PluginSet_Core_PluginsManagerWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index IsEnablePayment on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_IsPrivacyAuthorized(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)o;
+			bool ret = obj.IsPrivacyAuthorized;
+			LuaDLL.lua_pushboolean(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index IsPrivacyAuthorized on a nil value");
 		}
 	}
 
