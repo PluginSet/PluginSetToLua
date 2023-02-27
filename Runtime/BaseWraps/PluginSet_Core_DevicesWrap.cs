@@ -20,6 +20,7 @@ public class PluginSet_Core_DevicesWrap
 		L.RegFunction("CheckMicrophonePermission", CheckMicrophonePermission);
 		L.RegFunction("IsMicrophoneEnable", IsMicrophoneEnable);
 		L.RegFunction("RequestMicrophoneAuth", RequestMicrophoneAuth);
+		L.RegFunction("GetUnityUniqueId", GetUnityUniqueId);
 		L.RegFunction("GetDeviceUniqueId", GetDeviceUniqueId);
 		L.RegFunction("SetClipboardText", SetClipboardText);
 		L.RegFunction("GetClipboardText", GetClipboardText);
@@ -186,6 +187,22 @@ public class PluginSet_Core_DevicesWrap
 			ToLua.CheckArgsCount(L, 0);
 			bool o = PluginSet.Core.Devices.RequestMicrophoneAuth();
 			LuaDLL.lua_pushboolean(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetUnityUniqueId(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 0);
+			string o = PluginSet.Core.Devices.GetUnityUniqueId();
+			LuaDLL.lua_pushstring(L, o);
 			return 1;
 		}
 		catch (Exception e)
