@@ -13,6 +13,8 @@ public class PluginSet_Core_PluginsManagerWrap
 	{
 		L.BeginClass(typeof(PluginSet.Core.PluginsManager), typeof(PluginSet.Core.PluginBase));
 		L.RegFunction("StartPlugins", StartPlugins);
+		L.RegFunction("ContainsPlugin", ContainsPlugin);
+		L.RegFunction("ContainsPlugins", ContainsPlugins);
 		L.RegFunction("Restart", Restart);
 		L.RegFunction("ReportError", ReportError);
 		L.RegFunction("GetBannerTypes", GetBannerTypes);
@@ -322,6 +324,42 @@ public class PluginSet_Core_PluginsManagerWrap
 			ToLua.CheckArgsCount(L, 0);
 			PluginSet.Core.PluginsManager o = PluginSet.Core.PluginsManager.StartPlugins();
 			ToLua.PushSealed(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ContainsPlugin(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string arg0 = ToLua.CheckString(L, 2);
+			bool o = obj.ContainsPlugin(arg0);
+			LuaDLL.lua_pushboolean(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ContainsPlugins(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+			string[] arg0 = ToLua.CheckParamsString(L, 2, count - 1);
+			bool o = obj.ContainsPlugins(arg0);
+			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
 		catch (Exception e)
@@ -5685,6 +5723,14 @@ public class PluginSet_Core_PluginsManagerWrap
 				obj.Login(arg0);
 				return 0;
 			}
+			else if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				System.Action<PluginSet.Core.Result> arg0 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.Login(arg0, arg1);
+				return 0;
+			}
 			else
 			{
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.Login");
@@ -5726,6 +5772,15 @@ public class PluginSet_Core_PluginsManagerWrap
 				obj.LoginWith(arg0, arg1);
 				return 0;
 			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				obj.LoginWith(arg0, arg1, arg2);
+				return 0;
+			}
 			else
 			{
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.LoginWith");
@@ -5755,6 +5810,14 @@ public class PluginSet_Core_PluginsManagerWrap
 				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
 				System.Action<PluginSet.Core.Result> arg0 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 2);
 				obj.Logout(arg0);
+				return 0;
+			}
+			else if (count == 3)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				System.Action<PluginSet.Core.Result> arg0 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				obj.Logout(arg0, arg1);
 				return 0;
 			}
 			else
@@ -5788,6 +5851,15 @@ public class PluginSet_Core_PluginsManagerWrap
 				string arg0 = ToLua.CheckString(L, 2);
 				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
 				obj.LogoutWith(arg0, arg1);
+				return 0;
+			}
+			else if (count == 4)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				System.Action<PluginSet.Core.Result> arg1 = (System.Action<PluginSet.Core.Result>)ToLua.CheckDelegate<System.Action<PluginSet.Core.Result>>(L, 3);
+				string arg2 = ToLua.CheckString(L, 4);
+				obj.LogoutWith(arg0, arg1, arg2);
 				return 0;
 			}
 			else

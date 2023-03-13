@@ -58,7 +58,7 @@ namespace PluginSet.Lua.Editor
         public static void OnIOSXCodeProjectModify(BuildProcessorContext context, PBXProjectManager projectManager)
         {
             // 目前TOLUA静态库不支持bitcode
-            projectManager.Project.SetBuildProperty(projectManager.UnityFramework, "ENABLE_BITCODE", "NO");
+            projectManager.SetBuildProperty(projectManager.UnityFramework, "ENABLE_BITCODE", "NO");
         }
     }
 }
