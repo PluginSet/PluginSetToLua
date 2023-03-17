@@ -1,6 +1,6 @@
-﻿//#if UNITY_ANDROID
+﻿#if !UNITY_WEBGL
 #define ENABLE_LUA_JIT
-//#endif
+#endif
 
 using System;
 using System.IO;

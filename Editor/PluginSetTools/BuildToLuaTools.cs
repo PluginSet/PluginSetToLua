@@ -64,7 +64,7 @@ namespace PluginSet.Lua.Editor
             {
                 BuildLuaFilesCopy(context, buildParams.LuaBundleName, buildPaths.ToArray());
             }
-            else if (/*context.BuildTarget != BuildTarget.iOS &&*/ buildParams.BuildLuaToJit)
+            else if (context.BuildTarget != BuildTarget.WebGL && buildParams.BuildLuaToJit)
             {
                 BuildLuaFilesWithJit(context, buildParams.LuaBundleName, buildPaths.ToArray());
             }
