@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace PluginSet.Lua
 {
-    [PluginSetConfig("ToLua")]
     public class PluginToLuaConfig : ScriptableObject
     {
         public string StartScript = "Main.lua";

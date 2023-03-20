@@ -36,7 +36,7 @@ namespace PluginSet.Lua.Editor
             if (luaScriptPaths != null)
                 return;
             
-            var buildParams = context.BuildChannels.Get<BuildToLuaParams>("ToLua");
+            var buildParams = context.BuildChannels.Get<BuildToLuaParams>();
             if (string.IsNullOrEmpty(buildParams.LuaBundleName))
                 return;
 
@@ -48,7 +48,7 @@ namespace PluginSet.Lua.Editor
         [OnBuildPatches]
         public static void OnBuildBundles(BuildProcessorContext context)
         {
-            var buildParams = context.BuildChannels.Get<BuildToLuaParams>("ToLua");
+            var buildParams = context.BuildChannels.Get<BuildToLuaParams>();
             if (string.IsNullOrEmpty(buildParams.LuaBundleName))
                 return;
             

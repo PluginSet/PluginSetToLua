@@ -112,7 +112,7 @@ namespace PluginSet.Lua.Editor
                 ToLuaEmmyAPIGenerator.ExportEmmyLua(exportPath);
 
                 var config = EditorSetting.CurrentBuildChannel;
-                var toLua = config.Get<BuildToLuaParams>("ToLua");
+                var toLua = config.Get<BuildToLuaParams>();
                 if (toLua.CopyLuaFilesToLuaApi)
                     Global.CallCustomOrderMethods<OnCopyLuaFilesAttribute>(exportPath);
 
@@ -128,7 +128,7 @@ namespace PluginSet.Lua.Editor
             ToLuaEmmyAPIGenerator.ExportEmmyLua(exportPath);
 
             var config = EditorSetting.CurrentBuildChannel;
-            var toLua = config.Get<BuildToLuaParams>("ToLua");
+            var toLua = config.Get<BuildToLuaParams>();
             if (toLua.CopyLuaFilesToLuaApi)
                 Global.CallCustomOrderMethods<OnCopyLuaFilesAttribute>(exportPath);
 

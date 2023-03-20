@@ -201,7 +201,7 @@ namespace PluginSet.Lua
 
         protected override void Init(PluginSetConfig config)
         {
-            var cfg = config.Get<PluginToLuaConfig>("ToLua");
+            var cfg = config.Get<PluginToLuaConfig>();
             _toLuaConfig = cfg;
 
             Debugger.useLog = true;

@@ -40,9 +40,9 @@ namespace PluginSet.Lua.Editor
             if (UserDebugSetting.EnableLuaDebug && !context.ProductMode)
                 context.Symbols.Add("LUA_DEBUGGER");
             
-            var buildParams = context.BuildChannels.Get<BuildToLuaParams>("ToLua");
+            var buildParams = context.BuildChannels.Get<BuildToLuaParams>();
             var pluginConfig = context.Get<PluginSetConfig>("pluginsConfig");
-            var config = pluginConfig.Get<PluginToLuaConfig>("ToLua");
+            var config = pluginConfig.AddConfig<PluginToLuaConfig>("ToLua");
             config.runLuaSource = buildParams.runLuaSource;
             config.StartScript = buildParams.StartScript;
             config.LuaBundleName = buildParams.LuaBundleName;
