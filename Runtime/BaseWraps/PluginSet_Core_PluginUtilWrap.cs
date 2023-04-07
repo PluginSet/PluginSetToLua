@@ -19,6 +19,7 @@ public class PluginSet_Core_PluginUtilWrap
 		L.RegFunction("FilterAnalyticsEventName", FilterAnalyticsEventName);
 		L.RegFunction("ConvertFromHtmlColor", ConvertFromHtmlColor);
 		L.RegFunction("CharToHex", CharToHex);
+		L.RegFunction("CreateUUID", CreateUUID);
 		L.RegVar("VersionName", get_VersionName, null);
 		L.RegVar("VersionCode", get_VersionCode, null);
 		L.RegVar("AppVersion", get_AppVersion, null);
@@ -183,6 +184,22 @@ public class PluginSet_Core_PluginUtilWrap
 			char arg0 = (char)LuaDLL.luaL_checknumber(L, 1);
 			int o = PluginSet.Core.PluginUtil.CharToHex(arg0);
 			LuaDLL.lua_pushinteger(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int CreateUUID(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 0);
+			string o = PluginSet.Core.PluginUtil.CreateUUID();
+			LuaDLL.lua_pushstring(L, o);
 			return 1;
 		}
 		catch (Exception e)

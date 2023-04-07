@@ -15,6 +15,7 @@ public class PluginSet_Core_PluginConstantsWrap
 		L.RegConstant("CancelCode", -1);
 		L.RegConstant("InvalidCode", 404);
 		L.RegConstant("FailDefaultCode", 9999);
+		L.RegVar("SCREEN_SIZE_CHANGE", get_SCREEN_SIZE_CHANGE, null);
 		L.RegVar("NOTIFY_RESTART", get_NOTIFY_RESTART, null);
 		L.RegVar("NOTIFY_REPORT", get_NOTIFY_REPORT, null);
 		L.RegVar("NOTIFY_CHOOSE_BANNER_TYPE", get_NOTIFY_CHOOSE_BANNER_TYPE, null);
@@ -88,6 +89,20 @@ public class PluginSet_Core_PluginConstantsWrap
 		L.RegVar("FRIEND_ADD_REQUEST", get_FRIEND_ADD_REQUEST, null);
 		L.RegVar("FRIEND_REQUEST_DELETE", get_FRIEND_REQUEST_DELETE, null);
 		L.EndStaticLibs();
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_SCREEN_SIZE_CHANGE(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushstring(L, PluginSet.Core.PluginConstants.SCREEN_SIZE_CHANGE);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

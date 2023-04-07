@@ -31,6 +31,7 @@ public class PluginSet_Core_DevicesWrap
 		L.RegFunction("EnableOpenSettings", EnableOpenSettings);
 		L.RegFunction("OpenSettings", OpenSettings);
 		L.RegFunction("OSAvailable", OSAvailable);
+		L.RegFunction("SyncFileSystem", SyncFileSystem);
 		L.EndStaticLibs();
 	}
 
@@ -364,6 +365,21 @@ public class PluginSet_Core_DevicesWrap
 			bool o = PluginSet.Core.Devices.OSAvailable(arg0);
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SyncFileSystem(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 0);
+			PluginSet.Core.Devices.SyncFileSystem();
+			return 0;
 		}
 		catch (Exception e)
 		{
