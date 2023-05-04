@@ -9,6 +9,7 @@ local type = type
 local Vector3 = Vector3
 local zero = Vector3.zero
 
+---@class Bounds
 local Bounds = 
 {
 	center = Vector3.zero,
@@ -185,6 +186,7 @@ get.size = Bounds.GetSize
 get.min = Bounds.GetMin
 get.max = Bounds.GetMax
 
+---@class UnityEngine.Bounds: Bounds
 UnityEngine.Bounds = Bounds
 setmetatable(Bounds, Bounds)
 return Bounds

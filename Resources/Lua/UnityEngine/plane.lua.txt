@@ -7,6 +7,7 @@ local setmetatable = setmetatable
 local Mathf = Mathf
 local Vector3 = Vector3
 
+---@class Plane
 local Plane = {}
 
 Plane.__index = function(t,k)
@@ -61,6 +62,7 @@ function Plane:SameSide(inPt0, inPt1)
 	return (distanceToPoint > 0 and num2 > 0) or (distanceToPoint <= 0 and num2 <= 0)
 end    
 
+---@class UnityEngine.Plane: Plane
 UnityEngine.Plane = Plane
 setmetatable(Plane, Plane)
 return Plane

@@ -26,6 +26,7 @@ TouchBits =
 
 local TouchPhase = TouchPhase
 local TouchBits = TouchBits
+---@class Touch
 local Touch = {}
 local get = tolua.initget(Touch)
 
@@ -82,6 +83,7 @@ function Touch.GetMask(...)
 end
 
 UnityEngine.TouchPhase = TouchPhase
+---@class UnityEngine.Touch: Touch
 UnityEngine.Touch = Touch
 setmetatable(Touch, Touch)
 return Touch

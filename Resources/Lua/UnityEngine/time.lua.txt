@@ -22,6 +22,7 @@ local _Time =
 	unscaledTime		= 0,	
 }
 
+---@class Time
 local _set = {}
 
 function _set.fixedDeltaTime(v)
@@ -114,6 +115,7 @@ function Time:GetTimestamp()
 	return gettime()
 end
 
+---@class UnityEngine.Time: Time
 UnityEngine.Time = Time
 setmetatable(Time, _Time)
 

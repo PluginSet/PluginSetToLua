@@ -273,7 +273,7 @@ function Vector2:Sub(b)
 	self.x = self.x - b.x
 	self.y = self.y - b.y
 	
-	return
+	return self
 end
 
 Vector2.__tostring = function(self)
@@ -317,6 +317,7 @@ get.magnitude 		= Vector2.Magnitude
 get.normalized 		= Vector2.Normalize
 get.sqrMagnitude 	= Vector2.SqrMagnitude
 
+---@class UnityEngine.Vector2: Vector2
 UnityEngine.Vector2 = Vector2
 setmetatable(Vector2, Vector2)
 return Vector2

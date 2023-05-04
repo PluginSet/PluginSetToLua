@@ -17,6 +17,7 @@ RaycastBits =
 }
 	
 local RaycastBits = RaycastBits
+---@class RaycastHit
 local RaycastHit = {}
 local get = tolua.initget(RaycastHit)
 
@@ -76,6 +77,7 @@ function RaycastHit.GetMask(...)
 	return value
 end
 
+---@class UnityEngine.RaycastHit: RaycastHit
 UnityEngine.RaycastHit = RaycastHit
 setmetatable(RaycastHit, RaycastHit)
 return RaycastHit

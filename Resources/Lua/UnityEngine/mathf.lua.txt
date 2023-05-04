@@ -6,7 +6,8 @@
 local math = math
 local floor = math.floor
 local abs = math.abs
-local Mathf = Mathf
+---@class Mathf
+local Mathf = Mathf or {}
 
 Mathf.Deg2Rad = math.rad(1)
 Mathf.Epsilon = 1.4013e-45
@@ -219,5 +220,6 @@ function Mathf.IsNan(number)
 	return not (number == number)
 end
 
+---@class UnityEngine.Mathf: Mathf
 UnityEngine.Mathf = Mathf
 return Mathf
