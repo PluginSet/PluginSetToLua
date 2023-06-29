@@ -231,6 +231,7 @@ public class PluginSet_Core_PluginsManagerWrap
 		L.RegFunction("VerifyRealNameWith", VerifyRealNameWith);
 		L.RegFunction("OnUserRegister", OnUserRegister);
 		L.RegFunction("OnUserRealName", OnUserRealName);
+		L.RegFunction("OnUserPurchase", OnUserPurchase);
 		L.RegFunction("GetShareImageTypes", GetShareImageTypes);
 		L.RegFunction("GetValidShareImageTypes", GetValidShareImageTypes);
 		L.RegFunction("IsEnableShareImageWith", IsEnableShareImageWith);
@@ -6637,10 +6638,25 @@ public class PluginSet_Core_PluginsManagerWrap
 	{
 		try
 		{
-			ToLua.CheckArgsCount(L, 1);
-			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
-			obj.OnUserRegister();
-			return 0;
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 1)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				obj.OnUserRegister();
+				return 0;
+			}
+			else if (count == 2)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				string arg0 = ToLua.CheckString(L, 2);
+				obj.OnUserRegister(arg0);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.OnUserRegister");
+			}
 		}
 		catch (Exception e)
 		{
@@ -6657,6 +6673,84 @@ public class PluginSet_Core_PluginsManagerWrap
 			PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
 			obj.OnUserRealName();
 			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int OnUserPurchase(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 5)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				float arg2 = (float)LuaDLL.luaL_checknumber(L, 4);
+				string arg3 = ToLua.CheckString(L, 5);
+				obj.OnUserPurchase(arg0, arg1, arg2, arg3);
+				return 0;
+			}
+			else if (count == 6)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				float arg2 = (float)LuaDLL.luaL_checknumber(L, 4);
+				string arg3 = ToLua.CheckString(L, 5);
+				int arg4 = (int)LuaDLL.luaL_checknumber(L, 6);
+				obj.OnUserPurchase(arg0, arg1, arg2, arg3, arg4);
+				return 0;
+			}
+			else if (count == 7)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				float arg2 = (float)LuaDLL.luaL_checknumber(L, 4);
+				string arg3 = ToLua.CheckString(L, 5);
+				int arg4 = (int)LuaDLL.luaL_checknumber(L, 6);
+				string arg5 = ToLua.CheckString(L, 7);
+				obj.OnUserPurchase(arg0, arg1, arg2, arg3, arg4, arg5);
+				return 0;
+			}
+			else if (count == 8)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				float arg2 = (float)LuaDLL.luaL_checknumber(L, 4);
+				string arg3 = ToLua.CheckString(L, 5);
+				int arg4 = (int)LuaDLL.luaL_checknumber(L, 6);
+				string arg5 = ToLua.CheckString(L, 7);
+				string arg6 = ToLua.CheckString(L, 8);
+				obj.OnUserPurchase(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
+				return 0;
+			}
+			else if (count == 9)
+			{
+				PluginSet.Core.PluginsManager obj = (PluginSet.Core.PluginsManager)ToLua.CheckObject(L, 1, typeof(PluginSet.Core.PluginsManager));
+				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
+				string arg1 = ToLua.CheckString(L, 3);
+				float arg2 = (float)LuaDLL.luaL_checknumber(L, 4);
+				string arg3 = ToLua.CheckString(L, 5);
+				int arg4 = (int)LuaDLL.luaL_checknumber(L, 6);
+				string arg5 = ToLua.CheckString(L, 7);
+				string arg6 = ToLua.CheckString(L, 8);
+				string arg7 = ToLua.CheckString(L, 9);
+				obj.OnUserPurchase(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: PluginSet.Core.PluginsManager.OnUserPurchase");
+			}
 		}
 		catch (Exception e)
 		{
