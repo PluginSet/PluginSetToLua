@@ -13,7 +13,7 @@ LoggerManagerNative.SetLoggerLevel(logLevel)
 local function formatLog(...)
     local params = {}
     for i, v in ipairs({...}) do
-        if type(v) == "table" then
+        if type(v) == "table" and not v.__tostring then
             params[i] = table.show(v)
         else
             params[i] = tostring(v)
