@@ -52,6 +52,9 @@ namespace PluginSet.Lua.Editor
             if (string.IsNullOrEmpty(buildParams.LuaBundleName))
                 return;
             
+            context.RemoveBuildBundle(buildParams.LuaBundleName);
+            context.RemoveBuildBundle(buildParams.LuaBundleName.ToLower());
+            
             var luaScriptPaths = context.TryGet<List<string>>("toluaScriptPaths", null);
             if (luaScriptPaths == null || luaScriptPaths.Count <= 0)
                 return;
