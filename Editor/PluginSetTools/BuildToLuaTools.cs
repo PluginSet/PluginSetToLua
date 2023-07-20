@@ -128,6 +128,11 @@ namespace PluginSet.Lua.Editor
             CopyFiles(tempPath, searchPaths, (file, newFileName) =>
             {
                 encodeFunc(file, newFileName);
+                if (!File.Exists(newFileName))
+                {
+                    Debug.LogError("EncodeLuaFiles encode fail:" + newFileName);
+                    return;
+                }
                 //将编辑好的lua文件添加的bundle目录,等待打包bundle.
                 context.AddBuildBundle(bundleName, newFileName.ToLower());
             });
