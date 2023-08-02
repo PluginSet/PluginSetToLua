@@ -27,6 +27,8 @@ namespace PluginSet.Lua
 
         public int StartOrder => PluginsStartOrder.VirtualMachine;
 
+        public string StartScript { get; set; }
+
         public bool IsRunning { get; private set; }
 
         private LuaState _luaState = null;
@@ -168,7 +170,7 @@ namespace PluginSet.Lua
 
         private void StartMain()
         {
-            _luaState.DoFile(_toLuaConfig.StartScript);
+            _luaState.DoFile(StartScript);
             _levelLoaded = _luaState.GetFunction("OnLevelWasLoaded");
             _onAppPause = _luaState.GetFunction("OnApplicationPause");
             CallMain();
@@ -203,6 +205,7 @@ namespace PluginSet.Lua
         {
             var cfg = config.Get<PluginToLuaConfig>();
             _toLuaConfig = cfg;
+            StartScript = _toLuaConfig.StartScript;
 
             Debugger.useLog = true;
         }
