@@ -61,8 +61,12 @@ namespace PluginSet.Lua.Editor
         [MenuItem("PluginSet/Lua/Gen All", false, 2000)]
         public static void GenerateAll()
         {
-            CustomSettings.Init();
-            ToLuaMenu.GenLuaAll();
+            var settings = CustomSettings.GetAllGenerateSettings();
+            foreach (var target in settings)
+            {
+                CustomSettings.Init(target);
+                ToLuaMenu.GenLuaAll();
+            }
         }
 
         [MenuItem("PluginSet/Lua/Clear wrap files", false, 2000)]

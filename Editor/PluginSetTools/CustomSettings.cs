@@ -91,15 +91,16 @@ public static class CustomSettings
         if (string.IsNullOrEmpty(path))
             path = "Generate";
         
-        var lib = attribute.LibName;
-        if (string.IsNullOrEmpty(lib))
-        {
+        // 不再放在插件目录中
+        // var lib = attribute.LibName;
+        // if (string.IsNullOrEmpty(lib))
+        // {
             saveDir = Path.Combine(Application.dataPath, path) + "/";
-        }
-        else
-        {
-            saveDir = Path.Combine(Global.GetPackageFullPath(lib), "Runtime", path) + "/";
-        }
+        // }
+        // else
+        // {
+        //     saveDir = Path.Combine(Global.GetPackageFullPath(lib), "Runtime", path) + "/";
+        // }
 
         int maxPriority = attribute.Priority;
         genereteSettingTypes.Clear();

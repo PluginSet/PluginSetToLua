@@ -78,18 +78,14 @@ namespace PluginSet.Lua
         {
             if (string.IsNullOrEmpty(fileName))
                 return null;
-            
+
             byte[] buffer = null;
             
 #if !UNITY_EDITOR || LUA_BUNDLE_IN_EDITOR
             if (string.IsNullOrEmpty(_luaBundleName))
-            {
-                buffer = ResourcesManager.Instance.LoadLuaBytes(fileName);
-            }
-            else
-            {
-                buffer = ReadBundleAsset(fileName);
-            }
+                throw new Exception("LuaBundleName has not been setup!");
+            
+            buffer = ReadBundleAsset(fileName);
 #endif
 
 #if UNITY_EDITOR && !LUA_BUNDLE_IN_EDITOR

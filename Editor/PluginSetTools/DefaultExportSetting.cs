@@ -9,7 +9,7 @@ using Object = UnityEngine.Object;
 
 namespace PluginSet.Lua.Editor
 {
-    [ToLuaGenerateSetting("PluginSet.Lua.LuaWrap", "BaseWraps", "com.pluginset.tolua", int.MinValue)]
+    [ToLuaGenerateSetting("PluginSet.Lua.LuaWrap", "Scripts/ToLuaWrapper/Base", "com.pluginset.tolua", int.MinValue)]
     public class DefaultExportSetting
     {
         //导出时强制做为静态类的类型(注意customTypeList 还要添加这个类型才能导出)

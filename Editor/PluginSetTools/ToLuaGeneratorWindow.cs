@@ -69,7 +69,7 @@ namespace PluginSet.Lua.Editor
                 UpdateSettingTexts();
             }
 
-            if (GUILayout.Button("Generate all"))
+            if (GUILayout.Button("Generate scripts"))
             {
                 if (selectedIndex < 0)
                 {
