@@ -18,7 +18,7 @@ namespace PluginSet.Lua
         private struct DebugSetting
         {
             public bool EnableLuaDebug;
-            public string zbsDir;
+            public bool ReadBundleInEditor;
         }
 
         public static bool EnableLuaDebug
@@ -36,16 +36,16 @@ namespace PluginSet.Lua
             
         }
 
-        public static string zbsDir
+        public static bool ReadBundleInEditor
         {
             get
             {
-                return _debugSetting.zbsDir;
+                return _debugSetting.ReadBundleInEditor;
             }
 
-            private set
+            set
             {
-                _debugSetting.zbsDir = value;
+                _debugSetting.ReadBundleInEditor = value;
                 SaveToUserSetting(_debugSetting);
             }
         }
@@ -55,39 +55,6 @@ namespace PluginSet.Lua
         static UserDebugSetting()
         {
             _debugSetting = ReadFromUserSetting();
-            CheckSetting();
-        }
-        
-        public static void CheckSetting(bool force = false)
-        {
-            if (!EnableLuaDebug)
-                return;
-
-            if (force || string.IsNullOrEmpty(zbsDir) || !Directory.Exists(zbsDir))
-            {
-                ChooseDebuggerFolder();
-            }
-        }
-
-        private static void ChooseDebuggerFolder()
-        {
-            var title = "选择EmmyDebugger目录";
-            var folder = zbsDir;
-            if (string.IsNullOrEmpty(folder))
-                folder = Path.GetFullPath(".");
-            
-            string path = EditorUtility.OpenFolderPanel(title, folder, string.Empty);
-            if (string.IsNullOrEmpty(path))
-                path = zbsDir;
-            
-            if (!string.IsNullOrEmpty(path) && Directory.Exists(path))
-            {
-                zbsDir = Path.GetFullPath(path);
-            }
-            else
-            {
-                EditorUtility.DisplayDialog("提示", "未正确设置EmmyDebugger目录，lua调试不可用", "确定");
-            }
         }
 
         private static DebugSetting ReadFromUserSetting()

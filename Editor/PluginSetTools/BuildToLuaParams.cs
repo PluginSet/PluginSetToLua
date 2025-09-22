@@ -37,8 +37,14 @@ namespace PluginSet.Lua.Editor
         {
             context.AddLinkAssembly("PluginSet.Tolua");
             context.AddLinkAssembly("Assembly-CSharp");
-            if (UserDebugSetting.EnableLuaDebug && !context.ProductMode)
-                context.Symbols.Add("LUA_DEBUGGER");
+            if (!context.ProductMode)
+            {
+                if (UserDebugSetting.EnableLuaDebug)
+                    context.Symbols.Add("LUA_DEBUGGER");
+                
+                if (UserDebugSetting.ReadBundleInEditor)
+                    context.Symbols.Add("LUA_BUNDLE_IN_EDITOR");
+            }
             
             var buildParams = context.BuildChannels.Get<BuildToLuaParams>();
             var pluginConfig = context.Get<PluginSetConfig>("pluginsConfig");

@@ -466,10 +466,10 @@ namespace LuaInterface
         [DllImport(LUADLL, CallingConvention = CallingConvention.Cdecl)]
         public static extern int lua_cpcall(IntPtr L, IntPtr func, IntPtr ud);
 
-        //[DllImport(LUADLL, CallingConvention = CallingConvention.Cdecl)]
-        //public static extern int lua_load(IntPtr luaState, LuaChunkReader chunkReader, ref ReaderInfo data, string chunkName);
-        //[DllImport(LUADLL, CallingConvention = CallingConvention.Cdecl)]
-        //public static extern int lua_dump(IntPtr L, LuaWriter writer, IntPtr data);
+        // [DllImport(LUADLL, CallingConvention = CallingConvention.Cdecl)]
+        // public static extern int lua_load(IntPtr luaState, LuaChunkReader chunkReader, ref ReaderInfo data, string chunkName);
+        // [DllImport(LUADLL, CallingConvention = CallingConvention.Cdecl)]
+        // public static extern int lua_dump(IntPtr L, LuaWriter writer, IntPtr data);
 
         /* 
          * coroutine functions

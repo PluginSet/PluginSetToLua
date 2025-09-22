@@ -12,6 +12,8 @@ namespace PluginSet.Lua.Editor
         [MenuItem("PluginSet/Lua/Enable Read Bundle In Editor", false, 1000)]
         public static void EnableLuaBundleInEditor()
         {
+            UserDebugSetting.ReadBundleInEditor = true;
+            Global.AddPlatformSymbol(BuildTargetGroup.iOS, "LUA_BUNDLE_IN_EDITOR");
             Global.AddPlatformSymbol(BuildTargetGroup.iOS, "LUA_BUNDLE_IN_EDITOR");
             Global.AddPlatformSymbol(BuildTargetGroup.Android, "LUA_BUNDLE_IN_EDITOR");
             Global.AddPlatformSymbol(BuildTargetGroup.Standalone, "LUA_BUNDLE_IN_EDITOR");
@@ -20,6 +22,7 @@ namespace PluginSet.Lua.Editor
         [MenuItem("PluginSet/Lua/Disable Read Bundle In Editor", false, 1000)]
         public static void EnableLuaBundleInEditor()
         {
+            UserDebugSetting.ReadBundleInEditor = false;
             Global.RemovePlatformSymbol(BuildTargetGroup.iOS, "LUA_BUNDLE_IN_EDITOR");
             Global.RemovePlatformSymbol(BuildTargetGroup.Android, "LUA_BUNDLE_IN_EDITOR");
             Global.RemovePlatformSymbol(BuildTargetGroup.Standalone, "LUA_BUNDLE_IN_EDITOR");
@@ -45,11 +48,6 @@ namespace PluginSet.Lua.Editor
             Global.RemovePlatformSymbol(BuildTargetGroup.Standalone, "LUA_DEBUGGER");
         }
         
-        [MenuItem("PluginSet/Lua/Set Lua Debugger", false, 1000)]
-        public static void SetLuaDebugger()
-        {
-            UserDebugSetting.CheckSetting(true);
-        }
 #endif
 
         [MenuItem("PluginSet/Lua/Generator", false, 2000)]

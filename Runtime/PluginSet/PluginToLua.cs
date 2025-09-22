@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using LuaInterface;
 using PluginSet.Core;
 using UnityEngine;
@@ -10,6 +11,17 @@ using UnityEngine.SceneManagement;
 
 namespace PluginSet.Lua
 {
+#if UNITY_EDITOR && LUA_DEBUGGER
+    public class EmmyCoreDebugger
+    {
+        const string EMMY_CORE = "emmy_core";
+        
+        [DllImport(EMMY_CORE, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int luaopen_emmy_core(IntPtr L);
+    }
+
+#endif
+    
     [PluginRegister]
     public class PluginToLua : PluginBase, IStartPlugin
     {
@@ -54,7 +66,7 @@ namespace PluginSet.Lua
 #endif
 
 #if UNITY_EDITOR && LUA_DEBUGGER
-            OpenZbsDebugger(UserDebugSetting.zbsDir);
+            _luaState.OpenLibs(EmmyCoreDebugger.luaopen_emmy_core);
 #endif
 
             if (_toLuaConfig.LuaSocket)
@@ -65,37 +77,6 @@ namespace PluginSet.Lua
             OpenCJson();
         }
 
-#if UNITY_EDITOR && LUA_DEBUGGER
-    private void OpenZbsDebugger(string zbsDir, string ip = "localhost", int port = 9966)
-        {
-            if (string.IsNullOrEmpty(zbsDir))
-                return;
-
-            if (!Directory.Exists(zbsDir))
-            {
-                Debugger.LogWarning($"Not Set zbsDir or zbsDir{zbsDir} is invalid!");
-                return;
-            }
-
-            OpenLuaSocket();
-
-            if (!string.IsNullOrEmpty(zbsDir))
-            {
-                _luaState.AddSearchPath(zbsDir);
-            }
-            
-            _luaState.LuaDoString($"DebugServerIp = {ip};"
-                                  + $"DebugServerPort='{port}';"
-                                  + $"ZbsDir='{Global.GetFullPath(zbsDir)}';"
-#if UNITY_EDITOR_64
-                                  + "Is64=true;"
-#endif
-#if UNITY_EDITOR_WIN
-                                  + "IsWin=true;"
-#endif
-                , "@PluginToLua.cs");
-        }
-#endif
 
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         private static int LuaOpen_Socket_Core(IntPtr L)
