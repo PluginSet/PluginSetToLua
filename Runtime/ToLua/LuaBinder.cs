@@ -29,11 +29,38 @@ public static class LuaBinderUtils
     {
         var timer = new Stopwatch();
         timer.Start();
-        foreach (var type in luaBinderTypes)
+        
+        var assemblis = 
+            from assembly in AppDomain.CurrentDomain.GetAssemblies()
+#if !NET_STANDARD_2_0 && UNITY_EDITOR
+            where !(assembly.ManifestModule is System.Reflection.Emit.ModuleBuilder)
+#endif
+            select assembly;
+
+        foreach (var assembly in assemblis)
         {
-            var binder = Activator.CreateInstance(type) as ILuaBinder;
-            binder?.Bind(L);
+            Type[] types;
+                
+            try
+            {
+                types = assembly.GetTypes();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                continue;
+            }
+                
+            foreach (var type in types)
+            {
+                if (type.IsDefined(typeof(LuaBinderAttribute), false))
+                {
+                    var binder = Activator.CreateInstance(type) as ILuaBinder;
+                    binder?.Bind(L);
+                }
+            }
         }
+        
         timer.Stop();
         Debug.Log($"Lua bind all cost time: {timer.ElapsedMilliseconds}ms");
     }
