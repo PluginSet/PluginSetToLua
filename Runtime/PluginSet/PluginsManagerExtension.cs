@@ -23,6 +23,22 @@ namespace PluginSet.Lua
             }
         }
         
+        private static void TryCallbackWithResult(LuaFunction callback, PurchaseResult result)
+        {
+            if (callback != null && callback.IsAlive)
+            {
+                try
+                {
+                    callback.Call<PurchaseResult>(result);
+                }
+                catch (Exception e)
+                {
+                    Logger.Error("Call login callback fail error:{0}, result:{1}", e, result);
+                }
+            }
+        }
+        
+        
         private static void TryCallbackAction(LuaFunction callback)
         {
             if (callback != null && callback.IsAlive)
@@ -78,7 +94,7 @@ namespace PluginSet.Lua
 
         public static void Pay(this PluginsManager pm, string productId, LuaFunction callback, string jsonData = null)
         {
-            pm.Pay(productId, delegate(Result result)
+            pm.Pay(productId, delegate(PurchaseResult result)
             {
                 TryCallbackWithResult(callback, result);
             }, jsonData);
@@ -87,7 +103,7 @@ namespace PluginSet.Lua
         public static void PayWith(this PluginsManager pm, string pluginName, string productId, LuaFunction callback,
             string jsonData = null)
         {
-            pm.PayWith(pluginName, productId, delegate(Result result)
+            pm.PayWith(pluginName, productId, delegate(PurchaseResult result)
             {
                 TryCallbackWithResult(callback, result);
             }, jsonData);
@@ -95,12 +111,12 @@ namespace PluginSet.Lua
         
         public static void InitWithProducts(this PluginsManager pm, LuaTable products)
         {
-            pm.InitWithProducts(products.ToDictTable<string, int>().ToDictionary());
+            pm.InitWithProducts(products.ToDictTable<string, ProductType>().ToDictionary());
         }
         
         public static void InitWithProductsWith(this PluginsManager pm, string pluginName, LuaTable products)
         {
-            pm.InitWithProductsWith(pluginName, products.ToDictTable<string, int>().ToDictionary());
+            pm.InitWithProductsWith(pluginName, products.ToDictTable<string, ProductType>().ToDictionary());
         }
 
         public static void ShareImage(this PluginsManager pm, string imagePath
