@@ -87,6 +87,8 @@ namespace PluginSet.Lua.Editor
             typeof(LoggerManager),
 
             typeof(Result),
+            typeof(PurchaseResult),
+            typeof(PurchaseCallback),
             typeof(ReportError),
             typeof(IPaymentProduct),
         };

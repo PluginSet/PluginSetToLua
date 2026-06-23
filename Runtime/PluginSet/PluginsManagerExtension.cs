@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using LuaInterface;
 using PluginSet.Core;
 
@@ -111,12 +113,16 @@ namespace PluginSet.Lua
         
         public static void InitWithProducts(this PluginsManager pm, LuaTable products)
         {
-            pm.InitWithProducts(products.ToDictTable<string, ProductType>().ToDictionary());
+            var dict = products.ToDictTable<string, int>().ToDictionary();
+            var cover = dict.ToDictionary(kv => kv.Key, kv => (ProductType)kv.Value);
+            pm.InitWithProducts(cover);
         }
         
         public static void InitWithProductsWith(this PluginsManager pm, string pluginName, LuaTable products)
         {
-            pm.InitWithProductsWith(pluginName, products.ToDictTable<string, ProductType>().ToDictionary());
+            var dict = products.ToDictTable<string, int>().ToDictionary();
+            var cover = dict.ToDictionary(kv => kv.Key, kv => (ProductType)kv.Value);
+            pm.InitWithProductsWith(pluginName, cover);
         }
 
         public static void ShareImage(this PluginsManager pm, string imagePath
