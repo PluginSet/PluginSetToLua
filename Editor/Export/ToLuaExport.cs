@@ -1,4 +1,4 @@
-﻿/*
+/*
 Copyright (c) 2015-2017 topameng(topameng@qq.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -971,7 +971,7 @@ public static class ToLuaExport
 
             for (int i = baseList.Count - 1; i >= 0; i--)
             {
-                if (BeDropMethodType(baseList[i]))
+                if (BeDropMethodType(baseList[i]) || IsObsolete(baseList[i]))
                 {
                     baseList.RemoveAt(i);
                 }
@@ -3740,8 +3740,97 @@ public static class ToLuaExport
         }
     }
 
+    //System.Span<T> / System.ReadOnlySpan<T> 是 ref struct，不能作为泛型实参使用，
+    //把它们塞进 StackTraits<T> / TypeTraits<T> 必然 CS0306 编译失败。
+    //Unity 6 给 Transform / Resources / GameObject 等 API 加了一批 Span 重载，
+    //导出时必须整体跳过，否则生成的 wrap 文件无法编译。
+    static readonly PropertyInfo s_isByRefLikeProperty = typeof(Type).GetProperty("IsByRefLike");
+
+    /// <summary>
+    /// 判断类型是否为 ref struct（Span / ReadOnlySpan 等）。
+    /// 优先用 Type.IsByRefLike（netstandard2.1 起提供），老运行时退回按类型名判断。
+    /// </summary>
+    public static bool IsByRefLike(Type t)
+    {
+        if (t == null)
+        {
+            return false;
+        }
+
+        if (t.IsByRef || t.IsPointer)
+        {
+            t = t.GetElementType();
+        }
+
+        if (t == null || t == typeof(void))
+        {
+            return false;
+        }
+
+        if (s_isByRefLikeProperty != null)
+        {
+            try
+            {
+                return (bool)s_isByRefLikeProperty.GetValue(t, null);
+            }
+            catch
+            {
+                //忽略，走下面的名字兜底
+            }
+        }
+
+        return t.Name == "Span`1" || t.Name == "ReadOnlySpan`1";
+    }
+
+    /// <summary>
+    /// 签名里只要出现 ref struct（参数或返回值），生成出来的代码就不可能编译通过。
+    /// </summary>
+    static bool HasByRefLikeSignature(MethodBase mb)
+    {
+        MethodInfo mi = mb as MethodInfo;
+
+        if (mi != null && IsByRefLike(mi.ReturnType))
+        {
+            return true;
+        }
+
+        ParameterInfo[] ps = mb.GetParameters();
+
+        for (int i = 0; i < ps.Length; i++)
+        {
+            if (IsByRefLike(ps[i].ParameterType))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public static bool IsObsolete(MemberInfo mb)
     {
+        //ref struct 签名（Span / ReadOnlySpan）无法导出，按废弃成员同样处理
+        MethodBase method = mb as MethodBase;
+
+        if (method != null && HasByRefLikeSignature(method))
+        {
+            return true;
+        }
+
+        PropertyInfo prop = mb as PropertyInfo;
+
+        if (prop != null && IsByRefLike(prop.PropertyType))
+        {
+            return true;
+        }
+
+        FieldInfo field = mb as FieldInfo;
+
+        if (field != null && IsByRefLike(field.FieldType))
+        {
+            return true;
+        }
+
         object[] attrs = mb.GetCustomAttributes(true);
 
         for (int j = 0; j < attrs.Length; j++)
